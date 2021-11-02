@@ -27,7 +27,7 @@ public class DBorders {
                 fila[3] = res.getString("shippedDate");
                 fila[4] = res.getString("status");
                 fila[5] = res.getString("comments");
-                fila[6] = res.getString("customersNumber");
+                fila[6] = res.getString("customerNumber");
                 datos.addRow(fila);
             }
         } catch (Exception e) {

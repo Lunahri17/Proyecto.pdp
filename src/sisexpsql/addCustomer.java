@@ -219,7 +219,6 @@ public class addCustomer extends javax.swing.JFrame {
             creditLimit = Integer.parseInt(creditLimitTextField.getText());
         }
         int saleRepEmployeeNumber = Integer.parseInt(salesRepEmployeeNumberComboBox.getSelectedItem().toString());
-        System.out.println(saleRepEmployeeNumber);
         
         db.addCustomer(customerNumber, customerNameTextField.getText(), 
                 contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
