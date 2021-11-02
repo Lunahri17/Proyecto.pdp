@@ -4,7 +4,7 @@ import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
 public class DBorders {
-    public DefaultTableModel getOrders(){
+    public DefaultTableModel getOrder(String customerNumber){
         DefaultTableModel datos = new DefaultTableModel();
         datos.addColumn("Número de pedido");
         datos.addColumn("Fecha del pedido");
@@ -17,8 +17,10 @@ public class DBorders {
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
-            Statement s = con.createStatement();
-            ResultSet res = s.executeQuery("SELECT * FROM orders");
+            PreparedStatement sql = con.prepareStatement(
+                    "SELECT * FROM orders WHERE customerNumber = ?");
+            sql.setString(1, customerNumber);
+            ResultSet res = sql.executeQuery();
             while (res.next()) {
                 Object[] fila = new Object[7];
                 fila[0] = res.getString("orderNumber");

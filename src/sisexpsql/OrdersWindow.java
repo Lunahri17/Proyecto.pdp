@@ -17,7 +17,6 @@ public class OrdersWindow extends javax.swing.JFrame {
     public OrdersWindow() {
         initComponents();
         customersTable.setModel(new DBcustomers().listar());
-        ordersTable.setModel(new DBorders().getOrders());
     }
 
     /**
@@ -238,7 +237,9 @@ public class OrdersWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_delCustomerButtonActionPerformed
 
     private void customersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersTableMouseClicked
-        customerNumberTextField.setText(customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString());
+        String numero = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
+        customerNumberTextField.setText(numero);
+        ordersTable.setModel(new DBorders().getOrder(numero));
     }//GEN-LAST:event_customersTableMouseClicked
 
     private void ordersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTableMouseClicked
