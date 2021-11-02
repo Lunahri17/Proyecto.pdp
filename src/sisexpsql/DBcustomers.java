@@ -91,6 +91,7 @@ public class DBcustomers {
         }
         return resultado;
     }
+    
     public DefaultTableModel findCustomer(int customerNumber){
         DefaultTableModel resultado = new DefaultTableModel();
         resultado.addColumn("customerNumber");
@@ -100,7 +101,7 @@ public class DBcustomers {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "SELECT * FROM customers WHERE customerNumber LIKE '% ?%'");
+                    "SELECT * FROM customers WHERE customerNumber = ?");
             s.setInt(1, customerNumber);
             ResultSet res = s.executeQuery(); 
             while (res.next()) {

@@ -39,7 +39,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         orderDetailTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        customerNumber = new javax.swing.JTextField();
+        customerNumberTextField = new javax.swing.JTextField();
         findCustomerButton = new javax.swing.JButton();
         delCustomerButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -108,8 +108,18 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel2.setText("Número de Cliente:");
 
         findCustomerButton.setText("Buscar");
+        findCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findCustomerButtonActionPerformed(evt);
+            }
+        });
 
         delCustomerButton.setText("Eliminiar");
+        delCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delCustomerButtonActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Listar Tabla");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +144,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(customerNumber)
+                            .addComponent(customerNumberTextField)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(findCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,7 +168,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(customerNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(customerNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
                         .addComponent(findCustomerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,6 +189,17 @@ public class OrdersWindow extends javax.swing.JFrame {
         DBcustomers db = new DBcustomers();
         customersTable.setModel(db.listar());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void findCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findCustomerButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        customersTable.setModel(db.findCustomer(Integer.parseInt(customerNumberTextField.getText())));
+    }//GEN-LAST:event_findCustomerButtonActionPerformed
+
+    private void delCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delCustomerButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.delCustomer(Integer.parseInt(customerNumberTextField.getText()));
+        customersTable.setModel(db.listar());
+    }//GEN-LAST:event_delCustomerButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,7 +237,7 @@ public class OrdersWindow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField customerNumber;
+    private javax.swing.JTextField customerNumberTextField;
     private javax.swing.JTable customersTable;
     private javax.swing.JButton delCustomerButton;
     private javax.swing.JButton findCustomerButton;

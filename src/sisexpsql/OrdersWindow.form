@@ -60,7 +60,7 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="customerNumber" max="32767" attributes="0"/>
+                          <Component id="customerNumberTextField" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="findCustomerButton" max="32767" attributes="0"/>
@@ -93,7 +93,7 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="customerNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="customerNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                       <Component id="findCustomerButton" min="-2" max="-2" attributes="0"/>
@@ -194,17 +194,23 @@
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de Cliente:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="customerNumber">
+    <Component class="javax.swing.JTextField" name="customerNumberTextField">
     </Component>
     <Component class="javax.swing.JButton" name="findCustomerButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findCustomerButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="delCustomerButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Eliminiar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="delCustomerButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
