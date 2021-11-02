@@ -200,7 +200,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel10">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Estado (opcional):"/>
+        <Property name="text" type="java.lang.String" value="Provincia (opcional):"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">

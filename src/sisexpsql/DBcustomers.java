@@ -51,19 +51,39 @@ public class DBcustomers {
     
     public DefaultTableModel listar(){
         DefaultTableModel resultado = new DefaultTableModel();
-        resultado.addColumn("customerNumber");
-        resultado.addColumn("customerName");
-        resultado.addColumn("contactlastName");
+        resultado.addColumn("Número de Cliente");
+        resultado.addColumn("Nombre del Cliente");
+        resultado.addColumn("Nombre del Contacto");
+        resultado.addColumn("Apellido del Contacto");
+        resultado.addColumn("Teléfono");
+        resultado.addColumn("Dirección");
+        resultado.addColumn("Dirección Alternativa");
+        resultado.addColumn("Ciudad");
+        resultado.addColumn("Provincia");
+        resultado.addColumn("Código Postal");
+        resultado.addColumn("País");
+        resultado.addColumn("Número de Empleado a cargo");
+        resultado.addColumn("Límite de Credito");
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             Statement s = con.createStatement();
             ResultSet res = s.executeQuery("SELECT * FROM customers");
             while (res.next()) {
-                Object[] fila = new Object[3];
+                Object[] fila = new Object[13];
                 fila[0] = res.getString("customerNumber");
                 fila[1] = res.getString("customerName");
                 fila[2] = res.getString("contactLastName");
+                fila[3] = res.getString("contactFirstName");
+                fila[4] = res.getString("phone");
+                fila[5] = res.getString("addressLine1");
+                fila[6] = res.getString("addressLine2");
+                fila[7] = res.getString("city");
+                fila[8] = res.getString("state");
+                fila[9] = res.getString("postalCode");
+                fila[10] = res.getString("country");
+                fila[11] = res.getString("salesRepEmployeeNumber");
+                fila[12] = res.getString("creditLimit");
                 resultado.addRow(fila);
             }
         } catch (Exception e) {

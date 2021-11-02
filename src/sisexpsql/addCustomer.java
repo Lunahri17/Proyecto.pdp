@@ -80,7 +80,7 @@ public class addCustomer extends javax.swing.JFrame {
 
         jLabel9.setText("Ciudad:");
 
-        jLabel10.setText("Estado (opcional):");
+        jLabel10.setText("Provincia (opcional):");
 
         jLabel11.setText("Código Postal (opcional):");
 
