@@ -28,8 +28,6 @@ public class OrdersWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jScrollPane1 = new javax.swing.JScrollPane();
         customersTable = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -45,19 +43,6 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes - Pedidos - Detalle de Pedidos");
@@ -163,7 +148,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 668, Short.MAX_VALUE)
                             .addComponent(jScrollPane2)
                             .addComponent(jScrollPane4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -172,7 +157,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                                    .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 162, Short.MAX_VALUE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(findCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(delCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -237,12 +222,6 @@ public class OrdersWindow extends javax.swing.JFrame {
         customersTable.setModel(db.listar());
     }//GEN-LAST:event_delCustomerButtonActionPerformed
 
-    private void customersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersTableMouseClicked
-        String numero = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
-        customerNumberTextField.setText(numero);
-        ordersTable.setModel(new DBorders().getOrder(numero));
-    }//GEN-LAST:event_customersTableMouseClicked
-
     private void ordersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTableMouseClicked
         int fila = ordersTable.getSelectedRow();
         String numero = ordersTable.getValueAt(fila, 0).toString();
@@ -252,6 +231,12 @@ public class OrdersWindow extends javax.swing.JFrame {
     private void orderDetailTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orderDetailTableMouseClicked
         //no se usa xdd
     }//GEN-LAST:event_orderDetailTableMouseClicked
+
+    private void customersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_customersTableMouseClicked
+        String numero = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
+        customerNumberTextField.setText(numero);
+        ordersTable.setModel(new DBorders().getOrder(numero));
+    }//GEN-LAST:event_customersTableMouseClicked
 
     /**
      * @param args the command line arguments
@@ -301,9 +286,7 @@ public class OrdersWindow extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable orderDetailTable;
     private javax.swing.JTable ordersTable;
     // End of variables declaration//GEN-END:variables
