@@ -50,20 +50,20 @@ public class DBcustomers {
     
     
     public DefaultTableModel listar(){
-        DefaultTableModel resultado = new DefaultTableModel();
-        resultado.addColumn("Número de Cliente");
-        resultado.addColumn("Nombre del Cliente");
-        resultado.addColumn("Nombre del Contacto");
-        resultado.addColumn("Apellido del Contacto");
-        resultado.addColumn("Teléfono");
-        resultado.addColumn("Dirección");
-        resultado.addColumn("Dirección Alternativa");
-        resultado.addColumn("Ciudad");
-        resultado.addColumn("Provincia");
-        resultado.addColumn("Código Postal");
-        resultado.addColumn("País");
-        resultado.addColumn("Número de Empleado a cargo");
-        resultado.addColumn("Límite de Credito");
+        DefaultTableModel datos = new DefaultTableModel();
+        datos.addColumn("Número de Cliente");
+        datos.addColumn("Nombre del Cliente");
+        datos.addColumn("Nombre del Contacto");
+        datos.addColumn("Apellido del Contacto");
+        datos.addColumn("Teléfono");
+        datos.addColumn("Dirección");
+        datos.addColumn("Dirección Alternativa");
+        datos.addColumn("Ciudad");
+        datos.addColumn("Provincia");
+        datos.addColumn("Código Postal");
+        datos.addColumn("País");
+        datos.addColumn("Número de Empleado a cargo");
+        datos.addColumn("Límite de Credito");
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
@@ -84,12 +84,12 @@ public class DBcustomers {
                 fila[10] = res.getString("country");
                 fila[11] = res.getString("salesRepEmployeeNumber");
                 fila[12] = res.getString("creditLimit");
-                resultado.addRow(fila);
+                datos.addRow(fila);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return resultado;
+        return datos;
     }
     
     public DefaultTableModel findCustomer(int customerNumber){

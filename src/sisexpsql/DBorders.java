@@ -20,7 +20,7 @@ public class DBorders {
             Statement s = con.createStatement();
             ResultSet res = s.executeQuery("SELECT * FROM orders");
             while (res.next()) {
-                Object[] fila = new Object[13];
+                Object[] fila = new Object[7];
                 fila[0] = res.getString("orderNumber");
                 fila[1] = res.getString("orderDate");
                 fila[2] = res.getString("requiredDate");

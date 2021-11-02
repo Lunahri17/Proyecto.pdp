@@ -16,8 +16,8 @@ public class OrdersWindow extends javax.swing.JFrame {
      */
     public OrdersWindow() {
         initComponents();
-        DBcustomers db = new DBcustomers();
-        customersTable.setModel(db.listar());
+        customersTable.setModel(new DBcustomers().listar());
+        ordersTable.setModel(new DBorders().getOrders());
     }
 
     /**
