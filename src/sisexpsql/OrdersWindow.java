@@ -228,6 +228,7 @@ public class OrdersWindow extends javax.swing.JFrame {
     private void findCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findCustomerButtonActionPerformed
         DBcustomers db = new DBcustomers();
         customersTable.setModel(db.findCustomer(Integer.parseInt(customerNumberTextField.getText())));
+         ordersTable.setModel(new DBorders().getOrder(customerNumberTextField.getText()));
     }//GEN-LAST:event_findCustomerButtonActionPerformed
 
     private void delCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delCustomerButtonActionPerformed
