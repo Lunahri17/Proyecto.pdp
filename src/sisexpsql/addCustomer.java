@@ -16,6 +16,8 @@ public class addCustomer extends javax.swing.JFrame {
      */
     public addCustomer() {
         initComponents();
+        DBemployees db = new DBemployees();
+        salesRepEmployeeNumberComboBox.setModel(db.getEmployeesNumber());
     }
 
     /**
@@ -54,7 +56,7 @@ public class addCustomer extends javax.swing.JFrame {
         countryTextField = new javax.swing.JTextField();
         creditLimitTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        salesRepEmployeeNumber = new javax.swing.JComboBox<>();
+        salesRepEmployeeNumberComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Añadir Cliente");
@@ -96,7 +98,7 @@ public class addCustomer extends javax.swing.JFrame {
             }
         });
 
-        salesRepEmployeeNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        salesRepEmployeeNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,7 +139,7 @@ public class addCustomer extends javax.swing.JFrame {
                             .addComponent(postalCodeTextField)
                             .addComponent(countryTextField)
                             .addComponent(creditLimitTextField)
-                            .addComponent(salesRepEmployeeNumber, 0, 200, Short.MAX_VALUE))
+                            .addComponent(salesRepEmployeeNumberComboBox, 0, 200, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addContainerGap())
@@ -200,7 +202,7 @@ public class addCustomer extends javax.swing.JFrame {
                             .addComponent(jLabel14)
                             .addComponent(jButton1)
                             .addComponent(creditLimitTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(salesRepEmployeeNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(salesRepEmployeeNumberComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -208,6 +210,23 @@ public class addCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DBcustomers db = new DBcustomers();
+        int customerNumber = Integer.parseInt(customerNumberTextField.getText());
+        int creditLimit;
+        if("".equals(creditLimitTextField.getText())){
+            creditLimit = 0;
+        } else{
+            creditLimit = Integer.parseInt(creditLimitTextField.getText());
+        }
+        int saleRepEmployeeNumber = Integer.parseInt(salesRepEmployeeNumberComboBox.getSelectedItem().toString());
+        System.out.println(saleRepEmployeeNumber);
+        
+        db.addCustomer(customerNumber, customerNameTextField.getText(), 
+                contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
+                phoneTextField.getText(), addressLine1TextField.getText(), 
+                addressLine2TextField.getText(), cityTextField.getText(),
+                stateTextField.getText(), postalCodeTextField.getText(), 
+                countryTextField.getText(), saleRepEmployeeNumber, creditLimit);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -273,7 +292,7 @@ public class addCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField phoneTextField;
     private javax.swing.JTextField postalCodeTextField;
-    private javax.swing.JComboBox<String> salesRepEmployeeNumber;
+    private javax.swing.JComboBox<String> salesRepEmployeeNumberComboBox;
     private javax.swing.JTextField stateTextField;
     // End of variables declaration//GEN-END:variables
 }
