@@ -45,7 +45,7 @@ public class DBorders {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "INSERT INTO orders VALUES(?,?,?,'','In Process',?,?)");
+                    "INSERT INTO orders VALUES(?,?,?,NULL,'In Process',?,?)");
             s.setString(1, orderNumber);
             s.setString(2, orderDate);
             s.setString(3, requiredDate);

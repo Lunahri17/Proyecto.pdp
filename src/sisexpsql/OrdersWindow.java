@@ -16,8 +16,12 @@ public class OrdersWindow extends javax.swing.JFrame {
      */
     public OrdersWindow() {
         initComponents();
+        this.setLocationRelativeTo(null);
         customersTable.setModel(new DBcustomers().listar());
     }
+    
+    public static String text = "";
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -259,10 +263,11 @@ public class OrdersWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_customersTableMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
         AgregarPedidoDialog apd = new AgregarPedidoDialog(this,true);
         apd.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+    
     /**
      * @param args the command line arguments
      */
@@ -297,7 +302,7 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField customerNumberTextField;
     private javax.swing.JTable customersTable;

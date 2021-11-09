@@ -1,5 +1,8 @@
 package sisexpsql;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -18,6 +21,10 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
     public AgregarPedidoDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        orderDateFormattedTextField.setText(dtf.format(LocalDateTime.now()));
+        customerNumberTextField.setText(OrdersWindow.text);
     }
 
     /**
@@ -36,11 +43,11 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         orderNumberTextField = new javax.swing.JTextField();
-        orderDateTextField = new javax.swing.JTextField();
-        requiredDateTextField = new javax.swing.JTextField();
         commentsTextField = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         customerNumberTextField = new javax.swing.JTextField();
+        requiredDateFormattedTextField = new javax.swing.JFormattedTextField();
+        orderDateFormattedTextField = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,6 +78,13 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
 
         customerNumberTextField.setEditable(false);
 
+        requiredDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-mm-dd"))));
+        requiredDateFormattedTextField.setText("yyyy-mm-dd");
+
+        orderDateFormattedTextField.setEditable(false);
+        orderDateFormattedTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-mm-dd"))));
+        orderDateFormattedTextField.setText("yyyy-mm-dd");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,7 +97,7 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
-                                .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE))
+                                .addComponent(customerNumberTextField))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
@@ -95,10 +109,10 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
                                             .addComponent(jLabel5))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(commentsTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                                            .addComponent(requiredDateTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(orderDateTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(orderNumberTextField, javax.swing.GroupLayout.Alignment.LEADING))))
+                                            .addComponent(commentsTextField)
+                                            .addComponent(orderNumberTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(requiredDateFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                                            .addComponent(orderDateFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING))))
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(80, 80, 80)
@@ -117,11 +131,11 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(orderDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(orderDateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(requiredDateTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(requiredDateFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -139,7 +153,10 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBorders db = new DBorders();
+        db.addOrder(orderNumberTextField.getText(), orderDateFormattedTextField.getText(),
+                requiredDateFormattedTextField.getText(), commentsTextField.getText(), 
+                customerNumberTextField.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -194,8 +211,8 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField orderDateTextField;
+    private javax.swing.JFormattedTextField orderDateFormattedTextField;
     private javax.swing.JTextField orderNumberTextField;
-    private javax.swing.JTextField requiredDateTextField;
+    private javax.swing.JFormattedTextField requiredDateFormattedTextField;
     // End of variables declaration//GEN-END:variables
 }

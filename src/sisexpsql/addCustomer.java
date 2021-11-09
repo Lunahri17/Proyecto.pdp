@@ -16,6 +16,7 @@ public class addCustomer extends javax.swing.JFrame {
      */
     public addCustomer() {
         initComponents();
+        this.setLocationRelativeTo(null);
         DBemployees db = new DBemployees();
         salesRepEmployeeNumberComboBox.setModel(db.getEmployeesNumber());
     }
