@@ -139,12 +139,12 @@ public class DBorders {
     
     public void addOrderDetail(String orderNumber, String productCode, 
             String quantityOrdered, String priceEach, String orderLineNumber){
-            
+           
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "INSERT INTO orderdetails VALUES(?,?,?,?,?,?,?)");
+                    "INSERT INTO orderdetails VALUES(?,?,?,?,?,?)");
             s.setString(1, orderNumber);
             s.setString(2, productCode);
             s.setString(3, quantityOrdered);

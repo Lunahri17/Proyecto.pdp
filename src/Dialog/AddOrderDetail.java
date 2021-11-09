@@ -6,6 +6,7 @@
 package Dialog;
 
 import Windows.OrdersWindow;
+import sisexpsql.DBorders;
 import sisexpsql.DBproducts;
 
 /**
@@ -131,7 +132,7 @@ public class AddOrderDetail extends javax.swing.JDialog {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 463, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 785, Short.MAX_VALUE)
                         .addContainerGap())))
         );
         layout.setVerticalGroup(
@@ -166,7 +167,7 @@ public class AddOrderDetail extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addComponent(jButton1)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -178,7 +179,10 @@ public class AddOrderDetail extends javax.swing.JDialog {
     }//GEN-LAST:event_productsTableMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBorders db = new DBorders();
+        db.addOrderDetail(orderNumberTextField.getText(), productCodeTextField.getText(),
+                quantityOrderedTextField.getText(), priceEachTextField.getText(),
+                orderLineNumberComboBox.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
