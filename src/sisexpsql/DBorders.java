@@ -57,6 +57,21 @@ public class DBorders {
             System.out.println(e.getMessage());
         }
     }
+    public void updateShippedDate(String shippedDate, int orderNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE orders SET shippeddate = ? WHERE orderNumber = ?");
+            s.setString(1, shippedDate);
+            s.setInt(2, orderNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     
