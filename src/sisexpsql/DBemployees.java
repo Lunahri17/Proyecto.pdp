@@ -13,7 +13,7 @@ public class DBemployees {
             ResultSet res = s.executeQuery("SELECT * FROM employees");
             while(res.next()){
                 datos.addElement(res.getInt("employeeNumber"));
-                        //+ " : " + res.getString("lastName") + ", " + res.getString("firstName")); En algún momento lo hare asi xd
+                        //+ " : " + res.getString("lastName") + ", " + res.getString("firstName")); //En algún momento lo hare asi xd
             }
             
         } catch (Exception e) {
