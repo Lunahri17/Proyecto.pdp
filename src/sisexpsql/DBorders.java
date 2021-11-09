@@ -38,6 +38,29 @@ public class DBorders {
         return datos;
     }
     
+    public void addOrder(String orderNumber, String orderDate, 
+            String requiredDate, String comments, String customerNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO orders VALUES(?,?,?,'','In Process',?,?)");
+            s.setString(1, orderNumber);
+            s.setString(2, orderDate);
+            s.setString(3, requiredDate);
+            s.setString(4, comments);
+            s.setString(5, customerNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    
+    //Talbe orderdetails -------------------------------------------------------
     public DefaultTableModel getOrderDetails(String orderNumber){
         DefaultTableModel datos = new DefaultTableModel();
         datos.addColumn("Número de Pedido");
