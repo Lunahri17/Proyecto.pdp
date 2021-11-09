@@ -17,6 +17,7 @@ public class editOrderDialog extends javax.swing.JDialog {
     public editOrderDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -63,6 +64,11 @@ public class editOrderDialog extends javax.swing.JDialog {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "In Progress", "Shipped", "On Hold", "Disputed", "Resolved", "Cancelled" }));
 
         jButton2.setText("Modificar Estado del envío");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Comentarios:");
 
@@ -132,6 +138,12 @@ public class editOrderDialog extends javax.swing.JDialog {
         db.updateShippedDate(shippedDateFormattedTextField.getText(),
                 Integer.parseInt(OrdersWindow.text2));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DBorders db = new DBorders();
+        db.updateStatus(jComboBox1.getSelectedItem().toString(),
+                Integer.parseInt(OrdersWindow.text2));
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

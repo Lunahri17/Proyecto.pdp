@@ -73,6 +73,21 @@ public class DBorders {
         }
     }
     
+    public void updateStatus(String status, int orderNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE orders SET status = ? WHERE orderNumber = ?");
+            s.setString(1, status);
+            s.setInt(2, orderNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     //Talbe orderdetails -------------------------------------------------------
