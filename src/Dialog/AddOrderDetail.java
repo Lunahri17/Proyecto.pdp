@@ -92,6 +92,11 @@ public class AddOrderDetail extends javax.swing.JDialog {
         jLabel7.setText("Tabla de Productos:");
 
         jButton1.setText("Agregar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,6 +176,10 @@ public class AddOrderDetail extends javax.swing.JDialog {
     private void productsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTableMouseClicked
         productCodeTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
     }//GEN-LAST:event_productsTableMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

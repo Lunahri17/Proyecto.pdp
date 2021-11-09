@@ -136,4 +136,24 @@ public class DBorders {
         }
         return datos;
     }
+    
+    public void addOrderDetail(String orderNumber, String productCode, 
+            String quantityOrdered, String priceEach, String orderLineNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO orderdetails VALUES(?,?,?,?,?,?,?)");
+            s.setString(1, orderNumber);
+            s.setString(2, productCode);
+            s.setString(3, quantityOrdered);
+            s.setString(4, priceEach);
+            s.setString(5, orderLineNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
