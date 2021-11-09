@@ -1,4 +1,6 @@
-package sisexpsql;
+package Windows;
+
+import sisexpsql.Menu;
 
 public class Main {
 

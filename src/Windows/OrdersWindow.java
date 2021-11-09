@@ -3,7 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sisexpsql;
+package Windows;
+
+import Dialog.editOrderDialog;
+import Dialog.AgregarPedidoDialog;
+import sisexpsql.DBcustomers;
+import sisexpsql.DBorders;
 
 /**
  *
@@ -170,6 +175,11 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel7.setText("Opciones de Detalle de Pedido:");
 
         jButton4.setText("Agregar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Modificar");
 
@@ -305,6 +315,10 @@ public class OrdersWindow extends javax.swing.JFrame {
         editOrderDialog eod = new editOrderDialog(this,true);
         eod.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     /**
      * @param args the command line arguments

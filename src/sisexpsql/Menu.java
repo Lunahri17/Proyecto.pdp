@@ -5,6 +5,9 @@
  */
 package sisexpsql;
 
+import Windows.addCustomer;
+import Windows.OrdersWindow;
+
 /**
  *
  * @author Luna

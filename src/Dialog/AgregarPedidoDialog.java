@@ -1,7 +1,9 @@
-package sisexpsql;
+package Dialog;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import sisexpsql.DBorders;
+import Windows.OrdersWindow;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
