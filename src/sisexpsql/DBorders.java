@@ -89,6 +89,22 @@ public class DBorders {
         }
     }
     
+    public void updateComments(String comment, int orderNumber){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE orders SET comments = ? WHERE orderNumber = ?");
+            s.setString(1, comment);
+            s.setInt(2, orderNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     
     //Talbe orderdetails -------------------------------------------------------
     public DefaultTableModel getOrderDetails(String orderNumber){
