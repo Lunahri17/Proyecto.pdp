@@ -149,6 +149,20 @@ public class DBcustomers {
         }
     }
     
+    public void updatePhone(String phone, String customerNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE customers SET phone = ? WHERE customerNumber = ?");
+            s.setString(1, phone);
+            s.setString(2, customerNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     public void prueba(){
         try {
