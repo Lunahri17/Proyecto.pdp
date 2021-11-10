@@ -178,7 +178,10 @@ public class PaymentsWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBpayments db = new DBpayments();
+        db.addPayment(customerNumberComboBox.getSelectedItem().toString(),
+                checkNumberTextField.getText(), paymentDateTextField.getText(),
+                Float.parseFloat(amountTextField.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
