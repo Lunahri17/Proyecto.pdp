@@ -73,6 +73,11 @@ public class ProductsWindow extends javax.swing.JFrame {
         jLabel3.setText("Buscar un Producto:");
 
         findProductCodeButton.setText("Buscar por Código de Producto");
+        findProductCodeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findProductCodeButtonActionPerformed(evt);
+            }
+        });
 
         findProductNameButton.setText("Bucar por Nombre");
 
@@ -160,6 +165,11 @@ public class ProductsWindow extends javax.swing.JFrame {
     private void getProductsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getProductsButtonActionPerformed
         productsTable.setModel(new DBproducts().getProducts());
     }//GEN-LAST:event_getProductsButtonActionPerformed
+
+    private void findProductCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findProductCodeButtonActionPerformed
+        DBproducts db = new DBproducts();
+        productsTable.setModel(db.findProduct(findTextField.getText()));
+    }//GEN-LAST:event_findProductCodeButtonActionPerformed
 
     /**
      * @param args the command line arguments
