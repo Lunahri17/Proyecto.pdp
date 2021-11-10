@@ -1,6 +1,7 @@
 package sisexpsql;
 
 import java.sql.*;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 public class DBcustomers {
@@ -101,7 +102,23 @@ public class DBcustomers {
         }
         return resultado;
     }
-
+    
+    public DefaultComboBoxModel getCustomersNumbers(){
+        DefaultComboBoxModel datos = new DefaultComboBoxModel();
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            Statement s = con.createStatement();
+            ResultSet res = s.executeQuery("SELECT * FROM customers");
+            while(res.next()){
+                datos.addElement(res.getInt("customerNumber"));
+            }
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
     
     //Editar Columnas de Clientes:
     public void updateCustomerName(String customerName, String customerNumber){
