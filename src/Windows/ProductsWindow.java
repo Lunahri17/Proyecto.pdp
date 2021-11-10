@@ -5,6 +5,8 @@
  */
 package Windows;
 
+import sisexpsql.DBproducts;
+
 /**
  *
  * @author Luna
@@ -17,7 +19,7 @@ public class ProductsWindow extends javax.swing.JFrame {
     public ProductsWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+        productsTable.setModel(new DBproducts().getProducts());
     }
 
     /**
@@ -74,7 +76,12 @@ public class ProductsWindow extends javax.swing.JFrame {
 
         findProductNameButton.setText("Bucar por Nombre");
 
-        getProductsButton.setText("Listar Todos los productos");
+        getProductsButton.setText("Listar Todos los Productos");
+        getProductsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getProductsButtonActionPerformed(evt);
+            }
+        });
 
         editButton.setText("Modificar Producto");
 
@@ -149,6 +156,10 @@ public class ProductsWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void getProductsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getProductsButtonActionPerformed
+        productsTable.setModel(new DBproducts().getProducts());
+    }//GEN-LAST:event_getProductsButtonActionPerformed
 
     /**
      * @param args the command line arguments
