@@ -55,8 +55,8 @@ public class DBproducts {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "SELECT * FROM products WHERE productCode = ?");
-            s.setString(1, productCode);
+                    "SELECT * FROM products WHERE productCode LIKE ?");
+            s.setString(1,"%" + productCode + "%");
             ResultSet res = s.executeQuery(); 
             while (res.next()) {
                 Object[] fila = new Object[9];
