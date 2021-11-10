@@ -50,6 +50,7 @@ public class PaymentsWindow extends javax.swing.JFrame {
         findTextField = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        getPaymentsButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Ventana Pagos");
@@ -114,6 +115,13 @@ public class PaymentsWindow extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel8.setText("Número de Cliente:");
 
+        getPaymentsButton.setText("Listar Pagos");
+        getPaymentsButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getPaymentsButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -152,10 +160,13 @@ public class PaymentsWindow extends javax.swing.JFrame {
                                         .addComponent(findTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(33, 33, 33)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE)
-                                .addContainerGap())))))
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(getPaymentsButton)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 511, Short.MAX_VALUE))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +174,8 @@ public class PaymentsWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jLabel7))
+                    .addComponent(jLabel7)
+                    .addComponent(getPaymentsButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -192,7 +204,7 @@ public class PaymentsWindow extends javax.swing.JFrame {
                             .addComponent(jLabel8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
-                        .addGap(0, 97, Short.MAX_VALUE))
+                        .addGap(0, 93, Short.MAX_VALUE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -211,6 +223,10 @@ public class PaymentsWindow extends javax.swing.JFrame {
         DBpayments db = new DBpayments();
         paymentsTable.setModel(db.findPayments(findTextField.getText()));
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void getPaymentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getPaymentsButtonActionPerformed
+        paymentsTable.setModel(new DBpayments().getPayments());
+    }//GEN-LAST:event_getPaymentsButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,6 +268,7 @@ public class PaymentsWindow extends javax.swing.JFrame {
     private javax.swing.JTextField checkNumberTextField;
     private javax.swing.JComboBox<String> customerNumberComboBox;
     private javax.swing.JTextField findTextField;
+    private javax.swing.JButton getPaymentsButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
