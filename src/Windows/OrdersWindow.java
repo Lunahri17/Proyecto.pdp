@@ -10,6 +10,7 @@ import Dialog.editOrderDialog;
 import Dialog.AgregarPedidoDialog;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBorders;
+import sisexpsql.DBproducts;
 
 /**
  *
@@ -329,7 +330,12 @@ public class OrdersWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addOrderDetailButtonActionPerformed
 
     private void deleteOrderDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOrderDetailButtonActionPerformed
+        DBorders db = new DBorders();
         
+        String numero = orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 0).toString();
+        String numero2 = orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 1).toString();
+        
+        db.delProductDetail(numero,numero2);
     }//GEN-LAST:event_deleteOrderDetailButtonActionPerformed
     
     /**

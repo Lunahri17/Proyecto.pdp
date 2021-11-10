@@ -41,20 +41,6 @@ public class DBproducts {
         }
         return datos;
     }
-    public DefaultComboBoxModel getProductsBoxModel(){
-        DefaultComboBoxModel datos = new DefaultComboBoxModel();
-        try {
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost/classicmodels","root","1234");
-            Statement s = con.createStatement();
-            ResultSet res = s.executeQuery("SELECT * FROM products");
-            while(res.next()){
-                datos.addElement(res.getInt("productCode"));
-            }
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return datos;
-    }
+    
+    
 }

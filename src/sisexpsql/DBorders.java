@@ -144,13 +144,28 @@ public class DBorders {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "INSERT INTO orderdetails VALUES(?,?,?,?,?,?)");
+                    "INSERT INTO orderdetails VALUES(?,?,?,?,?)");
             s.setString(1, orderNumber);
             s.setString(2, productCode);
             s.setString(3, quantityOrdered);
             s.setString(4, priceEach);
             s.setString(5, orderLineNumber);
             s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void delProductDetail(String orderNumber, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "DELETE FROM orderdetails WHERE orderNumber = ? AND productCode = ?");
+            s.setString(1, orderNumber);
+            s.setString(2, productCode);
+            s.executeUpdate();            
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
