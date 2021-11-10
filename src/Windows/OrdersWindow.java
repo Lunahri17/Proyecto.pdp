@@ -8,6 +8,7 @@ package Windows;
 import Dialog.AddOrderDetail;
 import Dialog.editOrderDialog;
 import Dialog.AgregarPedidoDialog;
+import Dialog.EditCustomerDialog;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBorders;
 import sisexpsql.DBproducts;
@@ -49,7 +50,6 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         customerNumberTextField = new javax.swing.JTextField();
         findCustomerButton = new javax.swing.JButton();
-        editCustomerButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -60,6 +60,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         addOrderDetailButton = new javax.swing.JButton();
         deleteOrderDetailButton = new javax.swing.JButton();
+        editCustomerButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes - Pedidos - Detalle de Pedidos");
@@ -133,13 +134,6 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
-        editCustomerButton.setText("Modificar Cliente");
-        editCustomerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editCustomerButtonActionPerformed(evt);
-            }
-        });
-
         jButton1.setText("Listar Tabla");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,6 +184,13 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
+        editCustomerButton.setText("Modificar Cliente");
+        editCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editCustomerButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -208,18 +209,19 @@ public class OrdersWindow extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(jLabel6)
                             .addComponent(addOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(findCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(editCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(customerNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel7)
                             .addComponent(editOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(deleteOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                                .addComponent(addOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(addOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(editCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(findCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(customerNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))))
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,12 +291,6 @@ public class OrdersWindow extends javax.swing.JFrame {
          ordersTable.setModel(new DBorders().getOrder(customerNumberTextField.getText()));
     }//GEN-LAST:event_findCustomerButtonActionPerformed
 
-    private void editCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerButtonActionPerformed
-        /*DBcustomers db = new DBcustomers();
-        db.delCustomer(Integer.parseInt(customerNumberTextField.getText()));
-        customersTable.setModel(db.listar());*/
-    }//GEN-LAST:event_editCustomerButtonActionPerformed
-
     private void ordersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTableMouseClicked
         int fila = ordersTable.getSelectedRow();
         String numero = ordersTable.getValueAt(fila, 0).toString();
@@ -337,6 +333,12 @@ public class OrdersWindow extends javax.swing.JFrame {
         
         db.delProductDetail(numero,numero2);
     }//GEN-LAST:event_deleteOrderDetailButtonActionPerformed
+
+    private void editCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerButtonActionPerformed
+        text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
+        EditCustomerDialog ecd = new EditCustomerDialog(this,true);
+        ecd.setVisible(true);
+    }//GEN-LAST:event_editCustomerButtonActionPerformed
     
     /**
      * @param args the command line arguments
