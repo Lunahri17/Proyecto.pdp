@@ -38,8 +38,8 @@ public class DBcustomers {
         DefaultTableModel datos = new DefaultTableModel();
         datos.addColumn("Número de Cliente");
         datos.addColumn("Nombre del Cliente");
-        datos.addColumn("Nombre del Contacto");
         datos.addColumn("Apellido del Contacto");
+        datos.addColumn("Nombre del Contacto");
         datos.addColumn("Teléfono");
         datos.addColumn("Dirección");
         datos.addColumn("Dirección Alternativa");
