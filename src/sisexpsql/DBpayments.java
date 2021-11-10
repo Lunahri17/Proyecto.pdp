@@ -28,4 +28,23 @@ public class DBpayments {
         }
         return datos;
     }
+    
+    public void addPayment(String customerNumber, String checkNumber, String paymentDate,
+            float amount){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO payments VALUES(?,?,?,?)");
+            s.setString(1, customerNumber);
+            s.setString(2, checkNumber);
+            s.setString(3, paymentDate);
+            s.setFloat(4, amount);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
