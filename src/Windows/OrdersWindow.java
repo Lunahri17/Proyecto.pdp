@@ -49,7 +49,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         customerNumberTextField = new javax.swing.JTextField();
         findCustomerButton = new javax.swing.JButton();
-        delCustomerButton = new javax.swing.JButton();
+        editCustomerButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -133,10 +133,10 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
-        delCustomerButton.setText("Eliminiar");
-        delCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+        editCustomerButton.setText("Modificar Cliente");
+        editCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                delCustomerButtonActionPerformed(evt);
+                editCustomerButtonActionPerformed(evt);
             }
         });
 
@@ -213,7 +213,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(findCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(delCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(editCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(customerNumberTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(jLabel7)
                             .addComponent(editOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -245,7 +245,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(findCustomerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(delCustomerButton)
+                        .addComponent(editCustomerButton)
                         .addGap(38, 38, 38)
                         .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -289,11 +289,11 @@ public class OrdersWindow extends javax.swing.JFrame {
          ordersTable.setModel(new DBorders().getOrder(customerNumberTextField.getText()));
     }//GEN-LAST:event_findCustomerButtonActionPerformed
 
-    private void delCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delCustomerButtonActionPerformed
-        DBcustomers db = new DBcustomers();
+    private void editCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerButtonActionPerformed
+        /*DBcustomers db = new DBcustomers();
         db.delCustomer(Integer.parseInt(customerNumberTextField.getText()));
-        customersTable.setModel(db.listar());
-    }//GEN-LAST:event_delCustomerButtonActionPerformed
+        customersTable.setModel(db.listar());*/
+    }//GEN-LAST:event_editCustomerButtonActionPerformed
 
     private void ordersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTableMouseClicked
         int fila = ordersTable.getSelectedRow();
@@ -378,8 +378,8 @@ public class OrdersWindow extends javax.swing.JFrame {
     private javax.swing.JButton addOrderDetailButton;
     private javax.swing.JTextField customerNumberTextField;
     private javax.swing.JTable customersTable;
-    private javax.swing.JButton delCustomerButton;
     private javax.swing.JButton deleteOrderDetailButton;
+    private javax.swing.JButton editCustomerButton;
     private javax.swing.JButton editOrderButton;
     private javax.swing.JButton findCustomerButton;
     private javax.swing.JButton jButton1;

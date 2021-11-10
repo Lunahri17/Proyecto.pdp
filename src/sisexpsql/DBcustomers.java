@@ -33,22 +33,7 @@ public class DBcustomers {
             System.out.println(e.getMessage());
         }
     }
-    
-    public void delCustomer(int customerNumber){
-        try {
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost/classicmodels","root","1234");
-            PreparedStatement s = con.prepareStatement(
-                    "DELETE FROM customers WHERE customerNumber = ?");
-            s.setInt(1, customerNumber);
-            s.executeUpdate();            
-            
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-    }
-    
-    
+        
     public DefaultTableModel listar(){
         DefaultTableModel datos = new DefaultTableModel();
         datos.addColumn("Número de Cliente");
