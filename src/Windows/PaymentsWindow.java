@@ -68,6 +68,8 @@ public class PaymentsWindow extends javax.swing.JFrame {
 
         amountTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        paymentDateTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("yyyy-mm-dd"))));
+        paymentDateTextField.setText("yyyy-mm-dd");
         paymentDateTextField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jButton1.setText("Agregar Pago");
