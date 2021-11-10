@@ -101,7 +101,7 @@ public class DBcustomers {
             s.setInt(1, customerNumber);
             ResultSet res = s.executeQuery(); 
             while (res.next()) {
-                Object[] fila = new Object[3];
+                Object[] fila = new Object[13];
                 fila[0] = res.getString("customerNumber");
                 fila[1] = res.getString("customerName");
                 fila[2] = res.getString("contactLastName");
