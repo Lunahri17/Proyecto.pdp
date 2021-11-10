@@ -193,6 +193,21 @@ public class DBcustomers {
             System.out.println(e.getMessage());
         }
     }
+
+    public void updateCity(String city, String customerNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE customers SET city = ? WHERE customerNumber = ?");
+            s.setString(1, city);
+            s.setString(2, customerNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     public void prueba(){
         try {
