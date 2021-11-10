@@ -58,7 +58,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         editOrderButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         addOrderDetailButton = new javax.swing.JButton();
-        editOrderDetailButton = new javax.swing.JButton();
+        deleteOrderDetailButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes - Pedidos - Detalle de Pedidos");
@@ -182,7 +182,12 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
-        editOrderDetailButton.setText("Modificar");
+        deleteOrderDetailButton.setText("Eliminar");
+        deleteOrderDetailButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteOrderDetailButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +217,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(editOrderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(editOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                                .addComponent(deleteOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                                 .addComponent(addOrderDetailButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
@@ -264,7 +269,7 @@ public class OrdersWindow extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(addOrderDetailButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(editOrderDetailButton)
+                        .addComponent(deleteOrderDetailButton)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -322,6 +327,10 @@ public class OrdersWindow extends javax.swing.JFrame {
         AddOrderDetail aob = new AddOrderDetail(this,true);
         aob.setVisible(true);
     }//GEN-LAST:event_addOrderDetailButtonActionPerformed
+
+    private void deleteOrderDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOrderDetailButtonActionPerformed
+        
+    }//GEN-LAST:event_deleteOrderDetailButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -364,8 +373,8 @@ public class OrdersWindow extends javax.swing.JFrame {
     private javax.swing.JTextField customerNumberTextField;
     private javax.swing.JTable customersTable;
     private javax.swing.JButton delCustomerButton;
+    private javax.swing.JButton deleteOrderDetailButton;
     private javax.swing.JButton editOrderButton;
-    private javax.swing.JButton editOrderDetailButton;
     private javax.swing.JButton findCustomerButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

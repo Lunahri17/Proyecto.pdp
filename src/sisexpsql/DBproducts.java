@@ -1,6 +1,7 @@
 package sisexpsql;
 
 import java.sql.*;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
 public class DBproducts {
@@ -35,6 +36,22 @@ public class DBproducts {
                 fila[8] = res.getString("MSRP");
                 datos.addRow(fila);
             }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
+    public DefaultComboBoxModel getProductsBoxModel(){
+        DefaultComboBoxModel datos = new DefaultComboBoxModel();
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            Statement s = con.createStatement();
+            ResultSet res = s.executeQuery("SELECT * FROM products");
+            while(res.next()){
+                datos.addElement(res.getInt("productCode"));
+            }
+            
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
