@@ -7,6 +7,7 @@ package Dialog;
 
 import Windows.OrdersWindow;
 import sisexpsql.DBcustomers;
+import sisexpsql.DBemployees;
 
 /**
  *
@@ -22,6 +23,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         customerNumberTextField.setText(OrdersWindow.text);
+        saleRepEmployeeNumberComboBox.setModel(new DBemployees().getEmployeesNumber());
     }
 
     /**
@@ -137,24 +139,74 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         });
 
         contactFirstNameButton.setText("Modificar Nombre");
+        contactFirstNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactFirstNameButtonActionPerformed(evt);
+            }
+        });
 
         phoneButton.setText("Modificar Teléfono");
+        phoneButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phoneButtonActionPerformed(evt);
+            }
+        });
 
         addressLine1Button.setText("Modificar Dirección");
+        addressLine1Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressLine1ButtonActionPerformed(evt);
+            }
+        });
 
         addressLine2Button.setText("Modificar Dirección Alternativa");
+        addressLine2Button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addressLine2ButtonActionPerformed(evt);
+            }
+        });
 
         cityButton.setText("Modificar Ciudad");
+        cityButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cityButtonActionPerformed(evt);
+            }
+        });
 
         stateButton.setText("Modificar Provincia");
+        stateButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stateButtonActionPerformed(evt);
+            }
+        });
 
         postalCodeButton.setText("Modificar Código Postal");
+        postalCodeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                postalCodeButtonActionPerformed(evt);
+            }
+        });
 
         countryButton.setText("Modificar País");
+        countryButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                countryButtonActionPerformed(evt);
+            }
+        });
 
         saleRepEmployeeNumberButton.setText("Cambiar Empleado");
+        saleRepEmployeeNumberButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saleRepEmployeeNumberButtonActionPerformed(evt);
+            }
+        });
 
         creditLimitButton.setText("Modificar Límite de Credito");
+        creditLimitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                creditLimitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -294,6 +346,57 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         DBcustomers db = new DBcustomers();
         db.updateContactLastName(contactLastNameTextField.getText(), customerNumberTextField.getText());
     }//GEN-LAST:event_contactLastNameButtonActionPerformed
+
+    private void contactFirstNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactFirstNameButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateContactFirstName(contactFirstNameTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_contactFirstNameButtonActionPerformed
+
+    private void phoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updatePhone(phoneTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_phoneButtonActionPerformed
+
+    private void addressLine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressLine1ButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateAddressLine1(addressLine1TextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_addressLine1ButtonActionPerformed
+
+    private void addressLine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressLine2ButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateAddressLine2(addressLine2TextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_addressLine2ButtonActionPerformed
+
+    private void cityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateCity(cityTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_cityButtonActionPerformed
+
+    private void stateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateState(stateTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_stateButtonActionPerformed
+
+    private void postalCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postalCodeButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updatePostalCode(postalCodeTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_postalCodeButtonActionPerformed
+
+    private void countryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateCounrty(countryTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_countryButtonActionPerformed
+
+    private void creditLimitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditLimitButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateCreditLimit(creditLimitTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_creditLimitButtonActionPerformed
+
+    private void saleRepEmployeeNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saleRepEmployeeNumberButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateSalesRepEmployeeNumber(saleRepEmployeeNumberComboBox.getSelectedItem().toString(), 
+                                        customerNumberTextField.getText());
+    }//GEN-LAST:event_saleRepEmployeeNumberButtonActionPerformed
 
     /**
      * @param args the command line arguments

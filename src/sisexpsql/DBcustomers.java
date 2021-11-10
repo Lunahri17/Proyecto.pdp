@@ -254,13 +254,13 @@ public class DBcustomers {
         }
     }
     
-    public void updateSaleRepEmployeeNumber(String saleRepEmployeeNumber, String customerNumber){
+    public void updateSalesRepEmployeeNumber(String salesRepEmployeeNumber, String customerNumber){
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE customers SET saleRepEmployeeNumber = ? WHERE customerNumber = ?");
-            s.setString(1, saleRepEmployeeNumber);
+                    "UPDATE customers SET salesRepEmployeeNumber = ? WHERE customerNumber = ?");
+            s.setString(1, salesRepEmployeeNumber);
             s.setString(2, customerNumber);
             s.executeUpdate();         
             

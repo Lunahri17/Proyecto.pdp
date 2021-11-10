@@ -343,51 +343,81 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Nombre"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactFirstNameButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="phoneButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Tel&#xe9;fono"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="phoneButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addressLine1Button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Direcci&#xf3;n"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressLine1ButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="addressLine2Button">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Direcci&#xf3;n Alternativa"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressLine2ButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cityButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Ciudad"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cityButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="stateButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Provincia"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stateButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="postalCodeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar C&#xf3;digo Postal"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="postalCodeButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="countryButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar Pa&#xed;s"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="countryButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="saleRepEmployeeNumberButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cambiar Empleado"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saleRepEmployeeNumberButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="creditLimitButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Modificar L&#xed;mite de Credito"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="creditLimitButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
