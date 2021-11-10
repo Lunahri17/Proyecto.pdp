@@ -325,7 +325,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="customerNameButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar N&#xfa;mero de Cliente"/>
+        <Property name="text" type="java.lang.String" value="Modificar Nombre de Cliente"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="customerNameButtonActionPerformed"/>

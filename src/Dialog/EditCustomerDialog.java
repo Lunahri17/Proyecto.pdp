@@ -121,7 +121,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
 
         saleRepEmployeeNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        customerNameButton.setText("Modificar Número de Cliente");
+        customerNameButton.setText("Modificar Nombre de Cliente");
         customerNameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 customerNameButtonActionPerformed(evt);
