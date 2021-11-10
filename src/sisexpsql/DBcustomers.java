@@ -269,6 +269,21 @@ public class DBcustomers {
         }
     }
 
+    public void updateCreditLimit(String creditLimit, String customerNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE customers SET creditLimit = ? WHERE customerNumber = ?");
+            s.setString(1, creditLimit);
+            s.setString(2, customerNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     public void prueba(){
         try {
             Connection con = DriverManager.getConnection(
