@@ -20,6 +20,7 @@ public class EditCustomerDialog extends javax.swing.JDialog {
     public EditCustomerDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
         customerNumberTextField.setText(OrdersWindow.text);
     }
 
@@ -129,6 +130,11 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         });
 
         contactLastNameButton.setText("Modificar Apellido");
+        contactLastNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contactLastNameButtonActionPerformed(evt);
+            }
+        });
 
         contactFirstNameButton.setText("Modificar Nombre");
 
@@ -283,6 +289,11 @@ public class EditCustomerDialog extends javax.swing.JDialog {
         DBcustomers db = new DBcustomers();
         db.updateCustomerName(customerNameTextField.getText(), customerNumberTextField.getText());
     }//GEN-LAST:event_customerNameButtonActionPerformed
+
+    private void contactLastNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactLastNameButtonActionPerformed
+        DBcustomers db = new DBcustomers();
+        db.updateContactLastName(contactLastNameTextField.getText(), customerNumberTextField.getText());
+    }//GEN-LAST:event_contactLastNameButtonActionPerformed
 
     /**
      * @param args the command line arguments
