@@ -126,6 +126,11 @@ public class EditProductDialog extends javax.swing.JDialog {
         });
 
         jButton4.setText("Modificar Vendedor");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Modificar Stock");
 
@@ -255,6 +260,11 @@ public class EditProductDialog extends javax.swing.JDialog {
         DBproducts db = new DBproducts();
         db.updateProductScale(productScaleTextField.getText(), productCodeTextField.getText());
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        DBproducts db = new DBproducts();
+        db.updateProductVendor(productVendorTextField.getText(), productCodeTextField.getText());
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
