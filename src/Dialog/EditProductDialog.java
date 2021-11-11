@@ -147,6 +147,11 @@ public class EditProductDialog extends javax.swing.JDialog {
         });
 
         jButton7.setText("Modificar MSRP");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Modificar Descripción");
 
@@ -285,6 +290,11 @@ public class EditProductDialog extends javax.swing.JDialog {
         DBproducts db = new DBproducts();
         db.updateBuyPrice(buyPriceTextField.getText(), productCodeTextField.getText());
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        DBproducts db = new DBproducts();
+        db.updateMSRP(MSRPTextField.getText(), productCodeTextField.getText());
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
