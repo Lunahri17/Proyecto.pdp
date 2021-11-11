@@ -6,6 +6,7 @@
 package Windows;
 
 import Dialog.AddProductDialog;
+import Dialog.EditProductDialog;
 import sisexpsql.DBproducts;
 
 /**
@@ -22,6 +23,8 @@ public class ProductsWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         productsTable.setModel(new DBproducts().getProducts());
     }
+    
+    public static String text = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -63,6 +66,11 @@ public class ProductsWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        productsTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productsTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(productsTable);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -100,6 +108,11 @@ public class ProductsWindow extends javax.swing.JFrame {
         });
 
         editButton.setText("Modificar Producto");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Modificar un Producto:");
@@ -189,6 +202,16 @@ public class ProductsWindow extends javax.swing.JFrame {
         AddProductDialog apd = new AddProductDialog(this,true);
         apd.setVisible(true);
     }//GEN-LAST:event_addProductButtonActionPerformed
+
+    private void productsTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productsTableMouseClicked
+        editTextField.setText(productsTable.getValueAt(productsTable.getSelectedRow(), 0).toString());
+    }//GEN-LAST:event_productsTableMouseClicked
+
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+        text = editTextField.getText();
+        EditProductDialog epd = new EditProductDialog(this,true);
+        epd.setVisible(true);
+    }//GEN-LAST:event_editButtonActionPerformed
 
     /**
      * @param args the command line arguments
