@@ -155,6 +155,72 @@ public class DBproducts {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void updateProductLine(String productLine, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET productLine = ? WHERE productCode = ?");
+            s.setString(1, productLine);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateProductScale(String productScale, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET productScale = ? WHERE productCode = ?");
+            s.setString(1, productScale);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateProductVendor(String productVendor, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET productVendor = ? WHERE productCode = ?");
+            s.setString(1, productVendor);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateProductDescriprtion(String productDescription, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET productDescription = ? WHERE productCode = ?");
+            s.setString(1, productDescription);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    
+    
+    
+    
 
     
     //ProductLine Table:
