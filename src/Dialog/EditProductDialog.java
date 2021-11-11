@@ -153,7 +153,13 @@ public class EditProductDialog extends javax.swing.JDialog {
             }
         });
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jButton8.setText("Modificar Descripción");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -295,6 +301,12 @@ public class EditProductDialog extends javax.swing.JDialog {
         DBproducts db = new DBproducts();
         db.updateMSRP(MSRPTextField.getText(), productCodeTextField.getText());
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        DBproducts db = new DBproducts();
+        db.updateProductDescriprtion(productDescriptionTextArea.getText(), 
+                productCodeTextField.getText());
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -186,6 +186,8 @@ public class ProductsWindow extends javax.swing.JFrame {
 
     private void getProductsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getProductsButtonActionPerformed
         productsTable.setModel(new DBproducts().getProducts());
+        findTextField.setText("");
+        editTextField.setText("");
     }//GEN-LAST:event_getProductsButtonActionPerformed
 
     private void findProductCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findProductCodeButtonActionPerformed
