@@ -234,7 +234,8 @@ public class ProductsWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_editButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        productsTable.setModel(new DBproducts().findProductByProductLine(
+                jComboBox1.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
