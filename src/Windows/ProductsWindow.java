@@ -5,6 +5,7 @@
  */
 package Windows;
 
+import Dialog.AddProductDialog;
 import sisexpsql.DBproducts;
 
 /**
@@ -68,6 +69,11 @@ public class ProductsWindow extends javax.swing.JFrame {
         jLabel2.setText("Opciones de Productos:");
 
         addProductButton.setText("Agregar un Producto");
+        addProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Buscar un Producto:");
@@ -106,7 +112,6 @@ public class ProductsWindow extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(addProductButton)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -121,7 +126,8 @@ public class ProductsWindow extends javax.swing.JFrame {
                             .addComponent(editButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(editTextField, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(findProductNameButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jLabel1))
+                    .addComponent(jLabel1)
+                    .addComponent(addProductButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -178,6 +184,11 @@ public class ProductsWindow extends javax.swing.JFrame {
        DBproducts db = new DBproducts();
        productsTable.setModel(db.findProductByName(findTextField.getText()));
     }//GEN-LAST:event_findProductNameButtonActionPerformed
+
+    private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+        AddProductDialog apd = new AddProductDialog(this,true);
+        apd.setVisible(true);
+    }//GEN-LAST:event_addProductButtonActionPerformed
 
     /**
      * @param args the command line arguments
