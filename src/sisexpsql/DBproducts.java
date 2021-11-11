@@ -115,7 +115,30 @@ public class DBproducts {
         return datos;
     }
     
-    
+    public void addProduct(String productCode, String productName, String productLine, 
+            String productScale, String productVendor, String productDescription,
+            String quantityInStock, float buyPrice, float MSRP){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO products VALUES(?,?,?,?,?,?,?,?,?)");
+            s.setString(1, productCode);
+            s.setString(2, productName);
+            s.setString(3, productLine);
+            s.setString(4, productScale);
+            s.setString(5, productVendor);
+            s.setString(6, productDescription);
+            s.setString(7, quantityInStock);
+            s.setFloat(8, buyPrice);
+            s.setFloat(9, MSRP);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     //ProductLine Table:
