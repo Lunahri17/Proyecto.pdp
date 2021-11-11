@@ -140,6 +140,22 @@ public class DBproducts {
         }
     }
     
+    //Editar columnas de tabla products
+    public void updateProductName(String productName, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET productName = ? WHERE productCode = ?");
+            s.setString(1, productName);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     
     //ProductLine Table:
     public DefaultComboBoxModel getProductLines(){
