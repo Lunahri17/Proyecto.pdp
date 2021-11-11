@@ -282,7 +282,8 @@ public class EditProductDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        DBproducts db = new DBproducts();
+        db.updateBuyPrice(buyPriceTextField.getText(), productCodeTextField.getText());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
