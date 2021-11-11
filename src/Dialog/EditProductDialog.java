@@ -133,8 +133,18 @@ public class EditProductDialog extends javax.swing.JDialog {
         });
 
         jButton5.setText("Modificar Stock");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Modificar Precio");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Modificar MSRP");
 
@@ -265,6 +275,15 @@ public class EditProductDialog extends javax.swing.JDialog {
         DBproducts db = new DBproducts();
         db.updateProductVendor(productVendorTextField.getText(), productCodeTextField.getText());
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DBproducts db = new DBproducts();
+        db.updateQuantityInStock(quantityInStockTextField.getText(), productCodeTextField.getText());
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
