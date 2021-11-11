@@ -94,6 +94,11 @@ public class AddProductDialog extends javax.swing.JDialog {
         jScrollPane1.setViewportView(productDescriptionTextArea);
 
         addProductButton.setText("Cargar Producto");
+        addProductButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addProductButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -177,6 +182,16 @@ public class AddProductDialog extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addProductButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addProductButtonActionPerformed
+        DBproducts db = new DBproducts();
+        db.addProduct(productCodeTextField.getText(), productNameTextField.getText(),
+                productLineComboBox.getSelectedItem().toString(), 
+                productScaleTextField.getText(), productVendorTextField.getText(), 
+                productDescriptionTextArea.getText(), quantityInStockTextField.getText(),
+                Float.parseFloat(buyPriceTextField.getText()), 
+                Float.parseFloat(MSRPTextField.getText()));
+    }//GEN-LAST:event_addProductButtonActionPerformed
 
     /**
      * @param args the command line arguments

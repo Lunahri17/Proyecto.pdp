@@ -247,6 +247,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Cargar Producto"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addProductButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
