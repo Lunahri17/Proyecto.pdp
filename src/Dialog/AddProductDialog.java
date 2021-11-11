@@ -5,6 +5,8 @@
  */
 package Dialog;
 
+import sisexpsql.DBproducts;
+
 /**
  *
  * @author Luna
@@ -18,6 +20,7 @@ public class AddProductDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        productLineComboBox.setModel(new DBproducts().getProductLines());
     }
 
     /**
