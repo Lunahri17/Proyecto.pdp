@@ -216,12 +216,52 @@ public class DBproducts {
         }
     }
     
+    public void updateQuantityInStock(String quantityInStock, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET quantityInStock = ? WHERE productCode = ?");
+            s.setString(1, quantityInStock);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateBuyPrice(String buyPrice, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET buyPrice = ? WHERE productCode = ?");
+            s.setString(1, buyPrice);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateMSRP(String MSRP, String productCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE products SET MSRP = ? WHERE productCode = ?");
+            s.setString(1, MSRP);
+            s.setString(2, productCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
-    
-    
-    
-
     
     //ProductLine Table:
     public DefaultComboBoxModel getProductLines(){
