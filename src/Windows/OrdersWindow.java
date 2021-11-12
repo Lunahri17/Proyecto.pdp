@@ -11,7 +11,6 @@ import Dialog.AgregarPedidoDialog;
 import Dialog.EditCustomerDialog;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBorders;
-import sisexpsql.DBproducts;
 
 /**
  *
