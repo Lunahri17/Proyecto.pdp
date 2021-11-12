@@ -70,7 +70,12 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("jButton5");
+        jButton5.setText("Empleados/Oficinas");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Lineas de Productos");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -147,6 +152,11 @@ public class Menu extends javax.swing.JFrame {
        ProductLinesWindow v5 = new ProductLinesWindow();
        v5.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        EmployeesOfficesWindow v6 = new EmployeesOfficesWindow();
+        v6.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments

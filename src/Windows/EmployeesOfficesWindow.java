@@ -5,6 +5,8 @@
  */
 package Windows;
 
+import sisexpsql.DBemployees;
+
 /**
  *
  * @author Luna
@@ -17,6 +19,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     public EmployeesOfficesWindow() {
         initComponents();
         this.setLocationRelativeTo(null);
+        employeeTable.setModel(new DBemployees().getEmployees());
     }
 
     /**
@@ -93,6 +96,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jScrollPane1.setViewportView(employeeTable);
 
         getEmployeesButton.setText("Listar Empleados");
+        getEmployeesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getEmployeesButtonActionPerformed(evt);
+            }
+        });
 
         editEmployeeButton.setText("Modificar Empleado");
 
@@ -256,6 +264,10 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     private void findEmployeeNumberButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findEmployeeNumberButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_findEmployeeNumberButton1ActionPerformed
+
+    private void getEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getEmployeesButtonActionPerformed
+        employeeTable.setModel(new DBemployees().getEmployees());
+    }//GEN-LAST:event_getEmployeesButtonActionPerformed
 
     /**
      * @param args the command line arguments
