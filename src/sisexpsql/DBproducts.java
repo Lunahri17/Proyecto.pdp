@@ -340,4 +340,19 @@ public class DBproducts {
         return datos;
     }
     
+    public void addProductLine(String productLine, String textDescription){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO productlines VALUES(?,?,'','')");
+            s.setString(1, productLine);
+            s.setString(2, textDescription);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
 }
