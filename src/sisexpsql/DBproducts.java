@@ -329,8 +329,10 @@ public class DBproducts {
                     "SELECT * FROM productlines WHERE productLine = ?");
             s.setString(1, productLine);
             ResultSet res = s.executeQuery(); 
+            while(res.next()){
+                datos = res.getString("textDescription");
+            }
             
-            datos = res.getString("textDescription");
             
         } catch (Exception e) {
             System.out.println(e.getMessage());

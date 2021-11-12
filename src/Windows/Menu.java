@@ -73,6 +73,11 @@ public class Menu extends javax.swing.JFrame {
         jButton5.setText("jButton5");
 
         jButton6.setText("Lineas de Productos");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -137,6 +142,11 @@ public class Menu extends javax.swing.JFrame {
         ProductsWindow v4 = new ProductsWindow();
         v4.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       ProductLinesWindow v5 = new ProductLinesWindow();
+       v5.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
