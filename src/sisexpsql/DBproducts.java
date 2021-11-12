@@ -1,6 +1,7 @@
 package sisexpsql;
 
 import java.sql.*;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
 
