@@ -20,7 +20,7 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jComboBox1.setModel(new DBproducts().getProductLines());
-        
+        jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
         
     }
 
@@ -51,6 +51,16 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         jButton2.setText("Modificar Descripción");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+        jComboBox1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jComboBox1FocusLost(evt);
+            }
+        });
 
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
@@ -111,6 +121,14 @@ public class ProductLinesWindow extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jComboBox1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jComboBox1FocusLost
+        
+    }//GEN-LAST:event_jComboBox1FocusLost
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+        jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     /**
      * @param args the command line arguments
