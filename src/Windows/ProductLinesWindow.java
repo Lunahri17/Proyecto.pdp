@@ -7,6 +7,7 @@ package Windows;
 
 import Dialog.AddProductDialog;
 import Dialog.AddProductLinedialog;
+import Dialog.EditProductLineDescriptionDialog;
 import sisexpsql.DBproducts;
 
 /**
@@ -22,9 +23,10 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         jComboBox1.setModel(new DBproducts().getProductLines());
-        jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
-        
+        jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString())); 
     }
+    
+    public static String text = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,6 +58,11 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         });
 
         jButton2.setText("Modificar Descripción");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -128,6 +135,12 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         jComboBox1.setModel(new DBproducts().getProductLines());
         jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        text = jComboBox1.getSelectedItem().toString();
+        EditProductLineDescriptionDialog epldd = new EditProductLineDescriptionDialog(this,true);
+        epldd.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
