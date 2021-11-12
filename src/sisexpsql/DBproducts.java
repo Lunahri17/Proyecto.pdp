@@ -1,6 +1,7 @@
 package sisexpsql;
 
 import java.sql.*;
+import javax.swing.*;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.table.DefaultTableModel;
@@ -312,6 +313,24 @@ public class DBproducts {
             while(res.next()){
                 datos.addElement(res.getString("productLine"));
             }
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
+    
+    public String findProductLineDescription(String productLine){
+        String datos = "";
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT * FROM productlines WHERE productLine = ?");
+            s.setString(1, productLine);
+            ResultSet res = s.executeQuery(); 
+            
+            datos = res.getString("textDescription");
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
