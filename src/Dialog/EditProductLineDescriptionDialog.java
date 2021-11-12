@@ -6,6 +6,7 @@
 package Dialog;
 
 import Windows.ProductLinesWindow;
+import sisexpsql.DBproducts;
 
 /**
  *
@@ -54,7 +55,9 @@ public class EditProductLineDescriptionDialog extends javax.swing.JDialog {
         jLabel1.setText("Modificar Línea de Productos:");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton6.setText("Modificar");
@@ -110,7 +113,8 @@ public class EditProductLineDescriptionDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        
+        DBproducts db = new DBproducts();
+        db.updateTextDescription(jTextArea1.getText(), jTextField1.getText());
     }//GEN-LAST:event_jButton6ActionPerformed
 
     /**

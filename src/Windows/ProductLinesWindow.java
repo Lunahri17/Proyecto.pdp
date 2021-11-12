@@ -140,6 +140,8 @@ public class ProductLinesWindow extends javax.swing.JFrame {
         text = jComboBox1.getSelectedItem().toString();
         EditProductLineDescriptionDialog epldd = new EditProductLineDescriptionDialog(this,true);
         epldd.setVisible(true);
+        jComboBox1.setModel(new DBproducts().getProductLines());
+        jTextArea2.setText(new DBproducts().findProductLineDescription(jComboBox1.getSelectedItem().toString()));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
