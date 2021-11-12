@@ -90,7 +90,9 @@ public class AddProductDialog extends javax.swing.JDialog {
         productLineComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         productDescriptionTextArea.setColumns(20);
+        productDescriptionTextArea.setLineWrap(true);
         productDescriptionTextArea.setRows(5);
+        productDescriptionTextArea.setWrapStyleWord(true);
         jScrollPane1.setViewportView(productDescriptionTextArea);
 
         addProductButton.setText("Cargar Producto");

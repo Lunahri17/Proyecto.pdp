@@ -76,7 +76,9 @@ public class editOrderDialog extends javax.swing.JDialog {
         jLabel4.setText("Comentarios:");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton3.setText("Modificar Comentario");

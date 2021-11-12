@@ -50,7 +50,9 @@ public class AddProductLinedialog extends javax.swing.JDialog {
         jLabel3.setText("Descripción de la Línea:");
 
         jTextArea1.setColumns(20);
+        jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jButton1.setText("Cargar");
