@@ -355,4 +355,19 @@ public class DBproducts {
         }
     }
     
+    public void updateTextDescription(String textDescription, String productLine){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE productlines SET textDesription = ? WHERE productLine = ?");
+            s.setString(1, textDescription);
+            s.setString(2, productLine);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
 }
