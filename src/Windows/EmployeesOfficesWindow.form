@@ -79,7 +79,7 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="findOfficeCityNameButton" alignment="1" max="32767" attributes="0"/>
                                   <Component id="findOfficeTextField" max="32767" attributes="0"/>
-                                  <Component id="findEmployeeNumberButton1" pref="212" max="32767" attributes="0"/>
+                                  <Component id="findOfficeNumberButton" pref="212" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -149,7 +149,7 @@
                           <Component id="findOfficeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="findEmployeeNumberButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="findOfficeNumberButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="findOfficeCityNameButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
@@ -275,12 +275,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="findOfficeTextField">
     </Component>
-    <Component class="javax.swing.JButton" name="findEmployeeNumberButton1">
+    <Component class="javax.swing.JButton" name="findOfficeNumberButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar por C&#xf3;digo de Officina"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findEmployeeNumberButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findOfficeNumberButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="findOfficeCityNameButton">

@@ -50,7 +50,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         addOfficeButton = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         findOfficeTextField = new javax.swing.JTextField();
-        findEmployeeNumberButton1 = new javax.swing.JButton();
+        findOfficeNumberButton = new javax.swing.JButton();
         findOfficeCityNameButton = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         editOfficeTextField = new javax.swing.JTextField();
@@ -113,10 +113,10 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
 
         jLabel7.setText("Buscar Oficina:");
 
-        findEmployeeNumberButton1.setText("Buscar por Código de Officina");
-        findEmployeeNumberButton1.addActionListener(new java.awt.event.ActionListener() {
+        findOfficeNumberButton.setText("Buscar por Código de Officina");
+        findOfficeNumberButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                findEmployeeNumberButton1ActionPerformed(evt);
+                findOfficeNumberButtonActionPerformed(evt);
             }
         });
 
@@ -190,7 +190,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(findOfficeCityNameButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(findOfficeTextField)
-                                    .addComponent(findEmployeeNumberButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))))
+                                    .addComponent(findOfficeNumberButton, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -244,7 +244,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addComponent(findOfficeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(findEmployeeNumberButton1)
+                        .addComponent(findOfficeNumberButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(findOfficeCityNameButton)
                         .addGap(11, 11, 11)
@@ -262,12 +262,13 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void findEmployeeNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findEmployeeNumberButtonActionPerformed
-        // TODO add your handling code here:
+        DBemployees db = new DBemployees();
+        employeeTable.setModel(db.findEmployeeByNumber(findEmployeeTextField.getText()));
     }//GEN-LAST:event_findEmployeeNumberButtonActionPerformed
 
-    private void findEmployeeNumberButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findEmployeeNumberButton1ActionPerformed
+    private void findOfficeNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findOfficeNumberButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_findEmployeeNumberButton1ActionPerformed
+    }//GEN-LAST:event_findOfficeNumberButtonActionPerformed
 
     private void getEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getEmployeesButtonActionPerformed
         employeeTable.setModel(new DBemployees().getEmployees());
@@ -318,9 +319,9 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     private javax.swing.JTable employeeTable;
     private javax.swing.JButton findEmployeeLastNameButton;
     private javax.swing.JButton findEmployeeNumberButton;
-    private javax.swing.JButton findEmployeeNumberButton1;
     private javax.swing.JTextField findEmployeeTextField;
     private javax.swing.JButton findOfficeCityNameButton;
+    private javax.swing.JButton findOfficeNumberButton;
     private javax.swing.JTextField findOfficeTextField;
     private javax.swing.JButton getEmployeesButton;
     private javax.swing.JButton getOfficesButton;
