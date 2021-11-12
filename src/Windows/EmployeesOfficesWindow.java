@@ -74,6 +74,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jLabel4.setText("Modificar un Empleado:");
 
         findEmployeeLastNameButton.setText("Buscar por Apellido");
+        findEmployeeLastNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findEmployeeLastNameButtonActionPerformed(evt);
+            }
+        });
 
         findEmployeeNumberButton.setText("Buscar por Número de Empleado");
         findEmployeeNumberButton.addActionListener(new java.awt.event.ActionListener() {
@@ -273,6 +278,10 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     private void getEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getEmployeesButtonActionPerformed
         employeeTable.setModel(new DBemployees().getEmployees());
     }//GEN-LAST:event_getEmployeesButtonActionPerformed
+
+    private void findEmployeeLastNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findEmployeeLastNameButtonActionPerformed
+        employeeTable.setModel(new DBemployees().findEmployeeByLastName(findEmployeeTextField.getText()));
+    }//GEN-LAST:event_findEmployeeLastNameButtonActionPerformed
 
     /**
      * @param args the command line arguments
