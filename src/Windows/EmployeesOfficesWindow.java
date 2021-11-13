@@ -6,6 +6,7 @@
 package Windows;
 
 import Dialog.AddEmployeeDialog2;
+import Dialog.EditEmployeeDialog;
 import sisexpsql.DBemployees;
 
 /**
@@ -22,6 +23,8 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         employeeTable.setModel(new DBemployees().getEmployees());
     }
+    
+    public static String text = "";
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,6 +122,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         });
 
         editEmployeeButton.setText("Modificar Empleado");
+        editEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEmployeeButtonActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setText("Oficinas:");
@@ -303,6 +311,12 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         editEmployeeTextField.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 0).toString());
         //officeTable.setModel();
     }//GEN-LAST:event_employeeTableMouseClicked
+
+    private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
+        text = editEmployeeTextField.getText();
+        EditEmployeeDialog eed = new EditEmployeeDialog(this,true);
+        eed.setVisible(true);
+    }//GEN-LAST:event_editEmployeeButtonActionPerformed
 
     /**
      * @param args the command line arguments

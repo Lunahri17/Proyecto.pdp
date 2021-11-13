@@ -5,6 +5,7 @@
  */
 package Dialog;
 
+import Windows.EmployeesOfficesWindow;
 import sisexpsql.DBemployees;
 import sisexpsql.DBoffices;
 
@@ -21,6 +22,7 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        employeeNumberTextField.setText(EmployeesOfficesWindow.text);
         officeCodeComboBox.setModel(new DBoffices().getOfficeCodes());
         reportsToComboBox.setModel(new DBemployees().getEmployeesNumber());
     }
@@ -54,9 +56,10 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         officeCodeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Modificar Empleado");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Añadir Empleado");
+        jLabel1.setText("Modificar un Empleado");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Número de Empleado:");
@@ -81,6 +84,8 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Cargo:");
+
+        employeeNumberTextField.setEditable(false);
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Agregar");

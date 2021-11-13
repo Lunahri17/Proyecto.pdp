@@ -54,6 +54,7 @@ public class AddEmployeeDialog2 extends javax.swing.JDialog {
         officeCodeComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Añadir Empleado");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Añadir Empleado");
