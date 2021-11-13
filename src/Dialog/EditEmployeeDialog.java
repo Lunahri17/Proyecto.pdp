@@ -120,6 +120,11 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         });
 
         jButton5.setText("Modificar Extensión");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Modificar Email");
 
@@ -233,6 +238,11 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         DBemployees db = new DBemployees();
         db.updateFirstName(firstNameTextField.getText(), employeeNumberTextField.getText());
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        DBemployees db = new DBemployees();
+        db.updateExtension(extensionTextField.getText(), employeeNumberTextField.getText());
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
