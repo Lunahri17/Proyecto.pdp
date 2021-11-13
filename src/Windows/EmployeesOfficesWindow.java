@@ -5,6 +5,7 @@
  */
 package Windows;
 
+import Dialog.AddEmployeeDialog;
 import sisexpsql.DBemployees;
 
 /**
@@ -68,6 +69,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jLabel2.setText("Opciones de Empleados:");
 
         addEmployeeButton.setText("Agregar un Empleado");
+        addEmployeeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addEmployeeButtonActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Buscar Empleado:");
 
@@ -282,6 +288,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     private void findEmployeeLastNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findEmployeeLastNameButtonActionPerformed
         employeeTable.setModel(new DBemployees().findEmployeeByLastName(findEmployeeTextField.getText()));
     }//GEN-LAST:event_findEmployeeLastNameButtonActionPerformed
+
+    private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
+        AddEmployeeDialog aed = new AddEmployeeDialog(this,true);
+        aed.setVisible(true);
+    }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     /**
      * @param args the command line arguments
