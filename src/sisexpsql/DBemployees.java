@@ -147,6 +147,38 @@ public class DBemployees {
         }
     }
     
+    //Updates de campos
+    public void updateLastName(String lastName, String employeeNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE employeeNumber SET lastName = ? WHERE employeeNumber = ?");
+            s.setString(1, lastName);
+            s.setString(2, employeeNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateFirstName(String firstName, String employeeNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE employeeNumber SET firstName = ? WHERE employeeNumber = ?");
+            s.setString(1, firstName);
+            s.setString(2, employeeNumber);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
     
     
     
