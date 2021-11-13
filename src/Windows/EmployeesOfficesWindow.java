@@ -317,7 +317,8 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
 
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
         editEmployeeTextField.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 0).toString());
-        //officeTable.setModel();
+        officeTable.setModel(new DBoffices().findOfficeByCode(
+                employeeTable.getValueAt(employeeTable.getSelectedRow(), 5).toString()));
     }//GEN-LAST:event_employeeTableMouseClicked
 
     private void editEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmployeeButtonActionPerformed
