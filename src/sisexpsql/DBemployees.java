@@ -153,7 +153,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET lastName = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET lastName = ? WHERE employeeNumber = ?");
             s.setString(1, lastName);
             s.setString(2, employeeNumber);
             s.executeUpdate();         
@@ -168,7 +168,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET firstName = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET firstName = ? WHERE employeeNumber = ?");
             s.setString(1, firstName);
             s.setString(2, employeeNumber);
             s.executeUpdate();         
@@ -183,7 +183,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET extension = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET extension = ? WHERE employeeNumber = ?");
             s.setString(1, extension);
             s.setString(2, employeeNumber);
             s.executeUpdate();
@@ -197,7 +197,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET email = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET email = ? WHERE employeeNumber = ?");
             s.setString(1, email);
             s.setString(2, employeeNumber);
             s.executeUpdate();
@@ -211,7 +211,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET officeCode = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET officeCode = ? WHERE employeeNumber = ?");
             s.setString(1, officeCode);
             s.setString(2, employeeNumber);
             s.executeUpdate(); 
@@ -225,7 +225,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET reportsTo = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET reportsTo = ? WHERE employeeNumber = ?");
             s.setString(1, reportsTo);
             s.setString(2, employeeNumber);
             s.executeUpdate();
@@ -239,7 +239,7 @@ public class DBemployees {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "UPDATE employeeNumber SET jobTitle = ? WHERE employeeNumber = ?");
+                    "UPDATE employees SET jobTitle = ? WHERE employeeNumber = ?");
             s.setString(1, jobTitle);
             s.setString(2, employeeNumber);
             s.executeUpdate();
