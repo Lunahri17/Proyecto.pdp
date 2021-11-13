@@ -234,6 +234,18 @@ public class DBemployees {
         }
     }
     
-    
+    public void updateJobTitle(String jobTitle, String employeeNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE employeeNumber SET jobTitle = ? WHERE employeeNumber = ?");
+            s.setString(1, jobTitle);
+            s.setString(2, employeeNumber);
+            s.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
 }
