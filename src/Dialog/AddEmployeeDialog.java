@@ -5,6 +5,9 @@
  */
 package Dialog;
 
+import sisexpsql.DBemployees;
+import sisexpsql.DBoffices;
+
 /**
  *
  * @author Luna
@@ -18,6 +21,8 @@ public class AddEmployeeDialog extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         this.setLocationRelativeTo(null);
+        officeCodeComboBox.setModel(new DBoffices().getOfficeCodes());
+        reportsToComboBox.setModel(new DBemployees().getEmployeesNumber());
     }
 
     /**
