@@ -5,7 +5,7 @@
  */
 package Windows;
 
-import Dialog.AddEmployeeDialog;
+import Dialog.AddEmployeeDialog2;
 import sisexpsql.DBemployees;
 
 /**
@@ -104,6 +104,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        employeeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                employeeTableMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(employeeTable);
 
         getEmployeesButton.setText("Listar Empleados");
@@ -290,9 +295,14 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_findEmployeeLastNameButtonActionPerformed
 
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
-        AddEmployeeDialog aed = new AddEmployeeDialog(this,true);
+        AddEmployeeDialog2 aed = new AddEmployeeDialog2(this,true);
         aed.setVisible(true);
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
+
+    private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked
+        editEmployeeTextField.setText(employeeTable.getValueAt(employeeTable.getSelectedRow(), 0).toString());
+        //officeTable.setModel();
+    }//GEN-LAST:event_employeeTableMouseClicked
 
     /**
      * @param args the command line arguments
