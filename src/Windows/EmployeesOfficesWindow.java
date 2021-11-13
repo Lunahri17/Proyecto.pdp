@@ -147,6 +147,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         });
 
         findOfficeCityNameButton.setText("Buscar por Ciudad");
+        findOfficeCityNameButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                findOfficeCityNameButtonActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Modificar una Oficina:");
 
@@ -331,6 +336,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
        DBoffices db = new DBoffices();
        officeTable.setModel(db.getOffices());
     }//GEN-LAST:event_getOfficesButtonActionPerformed
+
+    private void findOfficeCityNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findOfficeCityNameButtonActionPerformed
+        DBoffices db = new DBoffices();
+        officeTable.setModel(db.findOfficeByCity(findOfficeTextField.getText()));
+    }//GEN-LAST:event_findOfficeCityNameButtonActionPerformed
 
     /**
      * @param args the command line arguments
