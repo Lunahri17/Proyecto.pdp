@@ -130,4 +130,27 @@ public class DBoffices {
         }
         return datos;
     }
+    
+    public void addOffice(String officeCode, String city, String phone, String addressLine1,
+            String addressLine2, String state, String country, String postalCode, String territory){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO offices VALUES(?,?,?,?,?,?,?,?)");
+            s.setString(1, officeCode);
+            s.setString(2, city);
+            s.setString(3, phone);
+            s.setString(4, addressLine1);
+            s.setString(5, addressLine2);
+            s.setString(6, state);
+            s.setString(7, country);
+            s.setString(8, postalCode);
+            s.setString(9, territory);
+            s.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
