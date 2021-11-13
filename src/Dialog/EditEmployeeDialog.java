@@ -127,10 +127,25 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         });
 
         jButton6.setText("Modificar Email");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Modificar Código de Oficina");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Modificar Superior");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,7 +241,8 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBemployees db = new DBemployees();
+        db.updateJobTitle(jobTitleTextField.getText(), employeeNumberTextField.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -243,6 +259,23 @@ public class EditEmployeeDialog extends javax.swing.JDialog {
         DBemployees db = new DBemployees();
         db.updateExtension(extensionTextField.getText(), employeeNumberTextField.getText());
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DBemployees db = new DBemployees();
+        db.updateEmail(emailTextField.getText(), employeeNumberTextField.getText());
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        DBemployees db = new DBemployees();
+        db.updateOfficeCode(officeCodeComboBox.getSelectedItem().toString(), 
+                employeeNumberTextField.getText());
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        DBemployees db = new DBemployees();
+        db.updateReportsTo(reportsToComboBox.getSelectedItem().toString(), 
+                employeeNumberTextField.getText());
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments
