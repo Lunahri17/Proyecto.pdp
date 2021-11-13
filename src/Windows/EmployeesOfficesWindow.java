@@ -8,6 +8,7 @@ package Windows;
 import Dialog.AddEmployeeDialog2;
 import Dialog.EditEmployeeDialog;
 import sisexpsql.DBemployees;
+import sisexpsql.DBoffices;
 
 /**
  *
@@ -22,6 +23,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         employeeTable.setModel(new DBemployees().getEmployees());
+        officeTable.setModel(new DBoffices().getOffices());
     }
     
     public static String text = "";
@@ -164,6 +166,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jScrollPane2.setViewportView(officeTable);
 
         getOfficesButton.setText("Listar Oficinas");
+        getOfficesButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getOfficesButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,7 +257,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
                             .addComponent(editEmployeeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editEmployeeButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 258, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -291,7 +298,8 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_findEmployeeNumberButtonActionPerformed
 
     private void findOfficeNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findOfficeNumberButtonActionPerformed
-        // TODO add your handling code here:
+        DBoffices db = new DBoffices();
+        officeTable.setModel(db.findOfficeByCode(findOfficeTextField.getText()));
     }//GEN-LAST:event_findOfficeNumberButtonActionPerformed
 
     private void getEmployeesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getEmployeesButtonActionPerformed
@@ -317,6 +325,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         EditEmployeeDialog eed = new EditEmployeeDialog(this,true);
         eed.setVisible(true);
     }//GEN-LAST:event_editEmployeeButtonActionPerformed
+
+    private void getOfficesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getOfficesButtonActionPerformed
+       DBoffices db = new DBoffices();
+       officeTable.setModel(db.getOffices());
+    }//GEN-LAST:event_getOfficesButtonActionPerformed
 
     /**
      * @param args the command line arguments
