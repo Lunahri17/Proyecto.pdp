@@ -5,6 +5,8 @@
  */
 package Dialog;
 
+import sisexpsql.DBoffices;
+
 /**
  *
  * @author Luna
@@ -80,7 +82,7 @@ public class AddOfficeDialog extends javax.swing.JDialog {
         jLabel12.setText("País:");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel14.setText("Límite de Credito:");
+        jLabel14.setText("Territorio");
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Cargar");
@@ -99,7 +101,7 @@ public class AddOfficeDialog extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addContainerGap(298, Short.MAX_VALUE))
+                        .addGap(0, 292, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
@@ -124,8 +126,8 @@ public class AddOfficeDialog extends javax.swing.JDialog {
                             .addComponent(postalCodeTextField)
                             .addComponent(territoryTextField))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,7 +178,12 @@ public class AddOfficeDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBoffices db = new DBoffices();
+        db.addOffice(officeCodeTextField.getText(), cityTextField.getText(), 
+                phoneTextField.getText(), addressLine1TextField.getText(),
+                addressLine2TextField.getText(), stateTextField.getText(), 
+                countryTextField.getText(), postalCodeTextField.getText(), 
+                territoryTextField.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -6,6 +6,7 @@
 package Windows;
 
 import Dialog.AddEmployeeDialog2;
+import Dialog.AddOfficeDialog;
 import Dialog.EditEmployeeDialog;
 import sisexpsql.DBemployees;
 import sisexpsql.DBoffices;
@@ -136,6 +137,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jLabel6.setText("Opciones de Oficinas:");
 
         addOfficeButton.setText("Agregar una Oficina");
+        addOfficeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addOfficeButtonActionPerformed(evt);
+            }
+        });
 
         jLabel7.setText("Buscar Oficina:");
 
@@ -155,7 +161,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
 
         jLabel8.setText("Modificar una Oficina:");
 
-        editOfficeButton.setText("Modificar Empleado");
+        editOfficeButton.setText("Modificar Oficina");
 
         officeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -352,6 +358,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         employeeTable.setModel(new DBemployees().findEmployeesByOffice(officeTable.getValueAt(
                 officeTable.getSelectedRow(), 0).toString()));
     }//GEN-LAST:event_officeTableMouseClicked
+
+    private void addOfficeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOfficeButtonActionPerformed
+        AddOfficeDialog aod = new AddOfficeDialog(this,true);
+        aod.setVisible(true);
+    }//GEN-LAST:event_addOfficeButtonActionPerformed
 
     /**
      * @param args the command line arguments

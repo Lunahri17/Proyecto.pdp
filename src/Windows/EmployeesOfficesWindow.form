@@ -279,6 +279,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar una Oficina"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addOfficeButtonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -312,7 +315,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="editOfficeButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Modificar Empleado"/>
+        <Property name="text" type="java.lang.String" value="Modificar Oficina"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">

@@ -138,7 +138,7 @@ public class DBoffices {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
-                    "INSERT INTO offices VALUES(?,?,?,?,?,?,?,?)");
+                    "INSERT INTO offices VALUES(?,?,?,?,?,?,?,?,?)");
             s.setString(1, officeCode);
             s.setString(2, city);
             s.setString(3, phone);
