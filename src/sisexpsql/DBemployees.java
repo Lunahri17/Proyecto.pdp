@@ -125,7 +125,27 @@ public class DBemployees {
         return datos;
     }
     
-    
+    public void addEmployee(String employeeNumber, String lastName, String firstName,
+            String extension, String email, String officeCode, String reportsTo, String jobTitle){
+            
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "INSERT INTO employees VALUES(?,?,?,?,?,?,?,?)");
+            s.setString(1, employeeNumber);
+            s.setString(2, lastName);
+            s.setString(3, firstName);
+            s.setString(4, extension);
+            s.setString(5, email);
+            s.setString(6, officeCode);
+            s.setString(7, reportsTo);
+            s.setString(8, jobTitle);
+            s.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     
