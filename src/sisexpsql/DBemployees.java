@@ -186,8 +186,7 @@ public class DBemployees {
                     "UPDATE employeeNumber SET extension = ? WHERE employeeNumber = ?");
             s.setString(1, extension);
             s.setString(2, employeeNumber);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -201,12 +200,40 @@ public class DBemployees {
                     "UPDATE employeeNumber SET email = ? WHERE employeeNumber = ?");
             s.setString(1, email);
             s.setString(2, employeeNumber);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void updateOfficeCode(String officeCode, String employeeNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE employeeNumber SET officeCode = ? WHERE employeeNumber = ?");
+            s.setString(1, officeCode);
+            s.setString(2, employeeNumber);
+            s.executeUpdate(); 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    public void updateReportsTo(String reportsTo, String employeeNumber){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE employeeNumber SET reportsTo = ? WHERE employeeNumber = ?");
+            s.setString(1, reportsTo);
+            s.setString(2, employeeNumber);
+            s.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     
     
 }
