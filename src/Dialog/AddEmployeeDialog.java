@@ -173,7 +173,11 @@ public class AddEmployeeDialog extends javax.swing.JDialog {
     }// </editor-fold>                        
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
-        
+        DBemployees db = new DBemployees();
+        db.addEmployee(employeeNumberTextField.getText(), lastNameTextField.getText(), 
+                firstNameTextField.getText(), extensionTextField.getText(), emailTextField.getText(), 
+                officeCodeComboBox.getSelectedItem().toString(), reportsToComboBox.getSelectedItem().toString(), 
+                jobTitleTextField.getText());
     }                                        
 
     /**
