@@ -168,6 +168,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        officeTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                officeTableMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(officeTable);
 
         getOfficesButton.setText("Listar Oficinas");
@@ -341,6 +346,12 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         DBoffices db = new DBoffices();
         officeTable.setModel(db.findOfficeByCity(findOfficeTextField.getText()));
     }//GEN-LAST:event_findOfficeCityNameButtonActionPerformed
+
+    private void officeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_officeTableMouseClicked
+        editOfficeTextField.setText(officeTable.getValueAt(officeTable.getSelectedRow(), 0).toString());
+        employeeTable.setModel(new DBemployees().findEmployeesByOffice(officeTable.getValueAt(
+                officeTable.getSelectedRow(), 0).toString()));
+    }//GEN-LAST:event_officeTableMouseClicked
 
     /**
      * @param args the command line arguments
