@@ -125,6 +125,41 @@ public class DBemployees {
         return datos;
     }
     
+    public DefaultTableModel findEmployeesByOffice(String officeCode){
+        DefaultTableModel datos = new DefaultTableModel();
+        datos.addColumn("Número de Empleado");
+        datos.addColumn("Apellidos");
+        datos.addColumn("Nombres");
+        datos.addColumn("Extensión");
+        datos.addColumn("Email");
+        datos.addColumn("Código de Oficina");
+        datos.addColumn("Superior");
+        datos.addColumn("Cargo");
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT * FROM employees WHERE officeCode = ?");
+            s.setString(1, officeCode);
+            ResultSet res = s.executeQuery(); 
+            while (res.next()) {
+                Object[] fila = new Object[8];
+                fila[0] = res.getString("employeeNumber");
+                fila[1] = res.getString("lastName");
+                fila[2] = res.getString("firstName");
+                fila[3] = res.getString("extension");
+                fila[4] = res.getString("email");
+                fila[5] = res.getString("officeCode");
+                fila[6] = res.getString("reportsTo");
+                fila[7] = res.getString("jobTitle");
+                datos.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
+    
     public void addEmployee(String employeeNumber, String lastName, String firstName,
             String extension, String email, String officeCode, String reportsTo, String jobTitle){
             
