@@ -245,7 +245,20 @@ public class DBoffices {
         }
     }
     
-    
+    public void updatePostalCode(String postalCode, String officeCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE offices SET postalCode = ? WHERE officeCode = ?");
+            s.setString(1, postalCode);
+            s.setString(2, officeCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
 }
