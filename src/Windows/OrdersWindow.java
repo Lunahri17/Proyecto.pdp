@@ -333,7 +333,7 @@ public class OrdersWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_deleteOrderDetailButtonActionPerformed
 
     private void editCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerButtonActionPerformed
-        text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
+        text = customerNumberTextField.getText();
         EditCustomerDialog ecd = new EditCustomerDialog(this,true);
         ecd.setVisible(true);
     }//GEN-LAST:event_editCustomerButtonActionPerformed
