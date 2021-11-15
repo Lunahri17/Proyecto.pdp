@@ -153,4 +153,27 @@ public class DBoffices {
             System.out.println(e.getMessage());
         }
     }
+    
+    //Updates de campos
+    public void updateCity(String city, String officeCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE offices SET city = ? WHERE officeCode = ?");
+            s.setString(1, city);
+            s.setString(2, officeCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
 }
