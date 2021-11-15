@@ -200,7 +200,20 @@ public class DBoffices {
         }
     }
     
-    
+    public void updateAddressLine2(String addressLine2, String officeCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE offices SET addressLine2 = ? WHERE officeCode = ?");
+            s.setString(1, addressLine2);
+            s.setString(2, officeCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     
