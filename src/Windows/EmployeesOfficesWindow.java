@@ -8,6 +8,7 @@ package Windows;
 import Dialog.AddEmployeeDialog2;
 import Dialog.AddOfficeDialog;
 import Dialog.EditEmployeeDialog;
+import Dialog.EditOfficeDialog;
 import sisexpsql.DBemployees;
 import sisexpsql.DBoffices;
 
@@ -162,6 +163,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         jLabel8.setText("Modificar una Oficina:");
 
         editOfficeButton.setText("Modificar Oficina");
+        editOfficeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editOfficeButtonActionPerformed(evt);
+            }
+        });
 
         officeTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -363,6 +369,11 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
         AddOfficeDialog aod = new AddOfficeDialog(this,true);
         aod.setVisible(true);
     }//GEN-LAST:event_addOfficeButtonActionPerformed
+
+    private void editOfficeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOfficeButtonActionPerformed
+        EditOfficeDialog eod = new EditOfficeDialog(this,true);
+        eod.setVisible(true);
+    }//GEN-LAST:event_editOfficeButtonActionPerformed
 
     /**
      * @param args the command line arguments
