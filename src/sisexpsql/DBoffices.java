@@ -170,7 +170,20 @@ public class DBoffices {
         }
     }
     
-    
+    public void updatePhone(String phone, String officeCode){
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "UPDATE offices SET phone = ? WHERE officeCode = ?");
+            s.setString(1, phone);
+            s.setString(2, officeCode);
+            s.executeUpdate();         
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
     
     
     
