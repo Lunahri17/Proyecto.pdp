@@ -163,8 +163,7 @@ public class DBoffices {
                     "UPDATE offices SET city = ? WHERE officeCode = ?");
             s.setString(1, city);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -178,8 +177,7 @@ public class DBoffices {
                     "UPDATE offices SET phone = ? WHERE officeCode = ?");
             s.setString(1, phone);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -193,8 +191,7 @@ public class DBoffices {
                     "UPDATE offices SET addressLine1 = ? WHERE officeCode = ?");
             s.setString(1, addressLine1);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -208,8 +205,7 @@ public class DBoffices {
                     "UPDATE offices SET addressLine2 = ? WHERE officeCode = ?");
             s.setString(1, addressLine2);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -223,8 +219,7 @@ public class DBoffices {
                     "UPDATE offices SET state = ? WHERE officeCode = ?");
             s.setString(1, state);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -238,8 +233,7 @@ public class DBoffices {
                     "UPDATE offices SET country = ? WHERE officeCode = ?");
             s.setString(1, country);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -253,8 +247,7 @@ public class DBoffices {
                     "UPDATE offices SET postalCode = ? WHERE officeCode = ?");
             s.setString(1, postalCode);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -268,8 +261,7 @@ public class DBoffices {
                     "UPDATE offices SET territory = ? WHERE officeCode = ?");
             s.setString(1, territory);
             s.setString(2, officeCode);
-            s.executeUpdate();         
-            
+            s.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }

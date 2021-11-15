@@ -5,6 +5,9 @@
  */
 package Dialog;
 
+import Windows.EmployeesOfficesWindow;
+import sisexpsql.DBoffices;
+
 /**
  *
  * @author Luna
@@ -17,6 +20,8 @@ public class EditOfficeDialog extends javax.swing.JDialog {
     public EditOfficeDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        officeCodeTextField.setText(EmployeesOfficesWindow.text);
     }
 
     /**
@@ -89,6 +94,8 @@ public class EditOfficeDialog extends javax.swing.JDialog {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Territorio");
 
+        officeCodeTextField.setEditable(false);
+
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jButton1.setText("Modificar Territorio");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -98,18 +105,53 @@ public class EditOfficeDialog extends javax.swing.JDialog {
         });
 
         jButton2.setText("Modificar Ciudad");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Modificar Teléfono");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Modificar Dirección");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Modificar Segunda Dirección");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Modificar Provincia");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jButton7.setText("Modificar País");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Modificar Código Postal");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,8 +252,44 @@ public class EditOfficeDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+        DBoffices db = new DBoffices();
+       db.updateTerritory(territoryTextField.getText(), officeCodeTextField.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       DBoffices db = new DBoffices();
+       db.updateCity(cityTextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       DBoffices db = new DBoffices();
+       db.updatePhone(phoneTextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+       DBoffices db = new DBoffices();
+       db.updateAddressLine1(addressLine1TextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       DBoffices db = new DBoffices();
+       db.updateAddressLine2(addressLine2TextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        DBoffices db = new DBoffices();
+       db.updateSate(stateTextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        DBoffices db = new DBoffices();
+       db.updateCounrty(countryTextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        DBoffices db = new DBoffices();
+       db.updatePostalCode(postalCodeTextField.getText(), officeCodeTextField.getText());
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     /**
      * @param args the command line arguments

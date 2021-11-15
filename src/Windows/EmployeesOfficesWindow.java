@@ -371,6 +371,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_addOfficeButtonActionPerformed
 
     private void editOfficeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOfficeButtonActionPerformed
+        text = editOfficeTextField.getText();
         EditOfficeDialog eod = new EditOfficeDialog(this,true);
         eod.setVisible(true);
     }//GEN-LAST:event_editOfficeButtonActionPerformed
