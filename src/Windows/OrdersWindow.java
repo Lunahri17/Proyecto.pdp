@@ -60,6 +60,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         addOrderDetailButton = new javax.swing.JButton();
         deleteOrderDetailButton = new javax.swing.JButton();
         editCustomerButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes - Pedidos - Detalle de Pedidos");
@@ -126,7 +127,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Número de Cliente:");
 
-        findCustomerButton.setText("Buscar");
+        findCustomerButton.setText("Buscar por Número");
         findCustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 findCustomerButtonActionPerformed(evt);
@@ -190,6 +191,13 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Buscar por Nombre");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,10 +224,12 @@ public class OrdersWindow extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(editCustomerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
-                                    .addComponent(findCustomerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(editCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(findCustomerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))))
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,8 +255,10 @@ public class OrdersWindow extends javax.swing.JFrame {
                         .addGap(8, 8, 8)
                         .addComponent(findCustomerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editCustomerButton)
-                        .addGap(38, 38, 38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
@@ -337,6 +349,11 @@ public class OrdersWindow extends javax.swing.JFrame {
         EditCustomerDialog ecd = new EditCustomerDialog(this,true);
         ecd.setVisible(true);
     }//GEN-LAST:event_editCustomerButtonActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        DBcustomers db = new DBcustomers();
+        customersTable.setModel(db.findCustomerByName(customerNumberTextField.getText()));
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -383,6 +400,7 @@ public class OrdersWindow extends javax.swing.JFrame {
     private javax.swing.JButton editOrderButton;
     private javax.swing.JButton findCustomerButton;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
