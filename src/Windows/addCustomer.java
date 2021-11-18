@@ -6,6 +6,7 @@
 package Windows;
 
 import java.awt.desktop.QuitEvent;
+import javax.swing.JOptionPane;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBemployees;
 
@@ -24,7 +25,51 @@ public class addCustomer extends javax.swing.JFrame {
         DBemployees db = new DBemployees();
         salesRepEmployeeNumberComboBox.setModel(db.getEmployeesNumber());
     }
-
+    public boolean validateTextFields(){
+        
+        if(customerNumberTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Número de Cliente");
+            return false;
+        }
+        
+        if (customerNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Nombre de Cliente");
+            return false;
+        }
+        
+        if (contactLastNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Apellido del Contacto");
+            return false;
+        }
+        
+        if (contactFirstNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Nombre del Contacto");
+            return false;
+        }
+        
+        if (phoneTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Teléfono");
+            return false;
+        }
+        
+        if (addressLine1TextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Dirección");
+            return false;
+        }
+        
+        if (cityTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Ciudad");
+            return false;
+        }
+        
+        if (phoneTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Teléfono");
+            return false;
+        }
+        
+        return true;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -281,31 +326,26 @@ public class addCustomer extends javax.swing.JFrame {
                             .addComponent(jButton1)
                             .addComponent(creditLimitTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(salesRepEmployeeNumberComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DBcustomers db = new DBcustomers();
-        int customerNumber = Integer.parseInt(customerNumberTextField.getText());
-        int creditLimit;
-        if("".equals(creditLimitTextField.getText())){
-            creditLimit = 0;
-        } else{
-            creditLimit = Integer.parseInt(creditLimitTextField.getText());
-        }
-        int saleRepEmployeeNumber = Integer.parseInt(salesRepEmployeeNumberComboBox.getSelectedItem().toString());
-        
-        db.addCustomer(customerNumber, customerNameTextField.getText(), 
+   
+        if (validateTextFields()){
+            DBcustomers db = new DBcustomers();
+            db.addCustomer(customerNumberTextField.getText(), customerNameTextField.getText(), 
                 contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
                 phoneTextField.getText(), addressLine1TextField.getText(), 
                 addressLine2TextField.getText(), cityTextField.getText(),
                 stateTextField.getText(), postalCodeTextField.getText(), 
-                countryTextField.getText(), saleRepEmployeeNumber, creditLimit);
-        
-        this.dispose();
+                countryTextField.getText(), salesRepEmployeeNumberComboBox.getSelectedItem().toString(),
+                creditLimitTextField.getText());
+            JOptionPane.showMessageDialog(null, "Cargado Correctamente");
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void customerNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerNumberTextFieldKeyTyped
