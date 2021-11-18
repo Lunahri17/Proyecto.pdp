@@ -123,6 +123,51 @@ public class DBcustomers {
         return datos;
     }
     
+    public DefaultTableModel findCustomerByName(String customerName){
+        DefaultTableModel datos = new DefaultTableModel();
+        datos.addColumn("Número de Cliente");
+        datos.addColumn("Nombre del Cliente");
+        datos.addColumn("Apellido del Contacto");
+        datos.addColumn("Nombre del Contacto");
+        datos.addColumn("Teléfono");
+        datos.addColumn("Dirección");
+        datos.addColumn("Dirección Alternativa");
+        datos.addColumn("Ciudad");
+        datos.addColumn("Provincia");
+        datos.addColumn("Código Postal");
+        datos.addColumn("País");
+        datos.addColumn("Número de Empleado a cargo");
+        datos.addColumn("Límite de Credito");
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT * FROM customers WHERE customerName LIKE ?");
+            s.setString(1,"%" + customerName + "%");
+            ResultSet res = s.executeQuery(); 
+            while (res.next()) {
+                Object[] fila = new Object[13];
+                fila[0] = res.getString("customerNumber");
+                fila[1] = res.getString("customerName");
+                fila[2] = res.getString("contactLastName");
+                fila[3] = res.getString("contactFirstName");
+                fila[4] = res.getString("phone");
+                fila[5] = res.getString("addressLine1");
+                fila[6] = res.getString("addressLine2");
+                fila[7] = res.getString("city");
+                fila[8] = res.getString("state");
+                fila[9] = res.getString("postalCode");
+                fila[10] = res.getString("country");
+                fila[11] = res.getString("salesRepEmployeeNumber");
+                fila[12] = res.getString("creditLimit");
+                datos.addRow(fila);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
+    
     public DefaultComboBoxModel getCustomersNumbers(){
         DefaultComboBoxModel datos = new DefaultComboBoxModel();
         try {
