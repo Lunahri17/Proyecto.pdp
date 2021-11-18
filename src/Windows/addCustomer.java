@@ -107,6 +107,12 @@ public class addCustomer extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel14.setText("Límite de Credito (opcional):");
 
+        customerNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                customerNumberTextFieldKeyTyped(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -258,6 +264,12 @@ public class addCustomer extends javax.swing.JFrame {
         creditLimitTextField.setText("");
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void customerNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerNumberTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_customerNumberTextFieldKeyTyped
 
     /**
      * @param args the command line arguments
