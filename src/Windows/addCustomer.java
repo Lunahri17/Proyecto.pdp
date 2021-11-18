@@ -243,6 +243,20 @@ public class addCustomer extends javax.swing.JFrame {
                 addressLine2TextField.getText(), cityTextField.getText(),
                 stateTextField.getText(), postalCodeTextField.getText(), 
                 countryTextField.getText(), saleRepEmployeeNumber, creditLimit);
+        
+        customerNumberTextField.setText("");
+        customerNameTextField.setText("");
+        contactLastNameTextField.setText("");
+        contactFirstNameTextField.setText("");
+        phoneTextField.setText("");
+        addressLine1TextField.setText("");
+        addressLine2TextField.setText("");
+        cityTextField.setText("");
+        stateTextField.setText("");
+        postalCodeTextField.setText("");
+        countryTextField.setText("");
+        creditLimitTextField.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
