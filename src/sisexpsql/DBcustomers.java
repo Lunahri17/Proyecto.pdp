@@ -2,20 +2,21 @@ package sisexpsql;
 
 import java.sql.*;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class DBcustomers {
-    public void addCustomer(int customerNumber, String customerName, String contactLastName,
+    public void addCustomer(String customerNumber, String customerName, String contactLastName,
             String contactFirstName, String phone, String addressLine1,
             String addressLine2, String city, String state, String postalCode,
-            String country, int salesRepEmployeeNumber, double creditLimit){
+            String country, String salesRepEmployeeNumber, String creditLimit){
             
         try {
             Connection con = DriverManager.getConnection(
                 "jdbc:mysql://localhost/classicmodels","root","1234");
             PreparedStatement s = con.prepareStatement(
                     "INSERT INTO customers VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
-            s.setInt(1, customerNumber);
+            s.setString(1, customerNumber);
             s.setString(2, customerName);
             s.setString(3, contactLastName);
             s.setString(4, contactFirstName);
@@ -26,8 +27,8 @@ public class DBcustomers {
             s.setString(9, state);
             s.setString(10, postalCode);
             s.setString(11, country);
-            s.setInt(12, salesRepEmployeeNumber);
-            s.setDouble(13, creditLimit);
+            s.setString(12, salesRepEmployeeNumber);
+            s.setString(13, creditLimit);
             s.executeUpdate();         
             
         } catch (Exception e) {
