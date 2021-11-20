@@ -354,19 +354,31 @@ public class addCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_customerNumberTextFieldKeyTyped
 
     private void customerNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerNameTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_customerNameTextFieldKeyTyped
 
     private void contactLastNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactLastNameTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_contactLastNameTextFieldKeyTyped
 
     private void contactFirstNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFirstNameTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_contactFirstNameTextFieldKeyTyped
@@ -378,13 +390,21 @@ public class addCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_phoneTextFieldKeyTyped
 
     private void cityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_cityTextFieldKeyTyped
 
     private void stateTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stateTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_stateTextFieldKeyTyped
@@ -396,7 +416,11 @@ public class addCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_postalCodeTextFieldKeyTyped
 
     private void countryTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_countryTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z')){
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
             evt.consume();
         }
     }//GEN-LAST:event_countryTextFieldKeyTyped
