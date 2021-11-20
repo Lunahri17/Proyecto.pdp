@@ -321,6 +321,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
         AgregarPedidoDialog apd = new AgregarPedidoDialog(this,true);
         apd.setVisible(true);
+        ordersTable.setModel(new DBorders().getOrder(text));
     }//GEN-LAST:event_addOrderButtonActionPerformed
 
     private void editOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrderButtonActionPerformed
