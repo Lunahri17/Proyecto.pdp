@@ -6,6 +6,7 @@
 package Dialog;
 
 import Windows.OrdersWindow;
+import javax.swing.JOptionPane;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBemployees;
 
@@ -338,64 +339,104 @@ public class EditCustomerDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void customerNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerNameButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateCustomerName(customerNameTextField.getText(), customerNumberTextField.getText());
+        if(customerNameTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nombre.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateCustomerName(customerNameTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_customerNameButtonActionPerformed
 
     private void contactLastNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactLastNameButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateContactLastName(contactLastNameTextField.getText(), customerNumberTextField.getText());
+        if (contactLastNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Apellido.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateContactLastName(contactLastNameTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_contactLastNameButtonActionPerformed
 
     private void contactFirstNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactFirstNameButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateContactFirstName(contactFirstNameTextField.getText(), customerNumberTextField.getText());
+        if (contactFirstNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nombre.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateContactFirstName(contactFirstNameTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_contactFirstNameButtonActionPerformed
 
     private void phoneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phoneButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updatePhone(phoneTextField.getText(), customerNumberTextField.getText());
+        if (phoneTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número de teléfono.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updatePhone(phoneTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_phoneButtonActionPerformed
 
     private void addressLine1ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressLine1ButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateAddressLine1(addressLine1TextField.getText(), customerNumberTextField.getText());
+        if (addressLine1TextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Dirección.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateAddressLine1(addressLine1TextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_addressLine1ButtonActionPerformed
 
     private void addressLine2ButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressLine2ButtonActionPerformed
         DBcustomers db = new DBcustomers();
         db.updateAddressLine2(addressLine2TextField.getText(), customerNumberTextField.getText());
+        JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_addressLine2ButtonActionPerformed
 
     private void cityButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cityButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateCity(cityTextField.getText(), customerNumberTextField.getText());
+        if (cityTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una ciudad.");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateCity(cityTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_cityButtonActionPerformed
 
     private void stateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateButtonActionPerformed
         DBcustomers db = new DBcustomers();
         db.updateState(stateTextField.getText(), customerNumberTextField.getText());
+        JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_stateButtonActionPerformed
 
     private void postalCodeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postalCodeButtonActionPerformed
         DBcustomers db = new DBcustomers();
         db.updatePostalCode(postalCodeTextField.getText(), customerNumberTextField.getText());
+        JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_postalCodeButtonActionPerformed
 
     private void countryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_countryButtonActionPerformed
-        DBcustomers db = new DBcustomers();
-        db.updateCounrty(countryTextField.getText(), customerNumberTextField.getText());
+        if (countryTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un .");
+        } else {
+            DBcustomers db = new DBcustomers();
+            db.updateCounrty(countryTextField.getText(), customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Modificado Correctamente");
+        }
     }//GEN-LAST:event_countryButtonActionPerformed
 
     private void creditLimitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creditLimitButtonActionPerformed
         DBcustomers db = new DBcustomers();
         db.updateCreditLimit(creditLimitTextField.getText(), customerNumberTextField.getText());
+        JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_creditLimitButtonActionPerformed
 
     private void saleRepEmployeeNumberButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saleRepEmployeeNumberButtonActionPerformed
         DBcustomers db = new DBcustomers();
         db.updateSalesRepEmployeeNumber(saleRepEmployeeNumberComboBox.getSelectedItem().toString(), 
                                         customerNumberTextField.getText());
+        JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_saleRepEmployeeNumberButtonActionPerformed
 
     /**
