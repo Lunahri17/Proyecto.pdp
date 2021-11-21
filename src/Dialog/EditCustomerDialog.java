@@ -123,6 +123,54 @@ public class EditCustomerDialog extends javax.swing.JDialog {
 
         customerNumberTextField.setEditable(false);
 
+        contactLastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactLastNameTextFieldKeyTyped(evt);
+            }
+        });
+
+        contactFirstNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contactFirstNameTextFieldKeyTyped(evt);
+            }
+        });
+
+        phoneTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneTextFieldKeyTyped(evt);
+            }
+        });
+
+        cityTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cityTextFieldKeyTyped(evt);
+            }
+        });
+
+        stateTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                stateTextFieldKeyTyped(evt);
+            }
+        });
+
+        postalCodeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                postalCodeTextFieldKeyTyped(evt);
+            }
+        });
+
+        countryTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                countryTextFieldKeyTyped(evt);
+            }
+        });
+
+        creditLimitTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                creditLimitTextFieldKeyTyped(evt);
+            }
+        });
+
         saleRepEmployeeNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         customerNameButton.setText("Modificar Nombre de Cliente");
@@ -438,6 +486,76 @@ public class EditCustomerDialog extends javax.swing.JDialog {
                                         customerNumberTextField.getText());
         JOptionPane.showMessageDialog(null, "Modificado Correctamente");
     }//GEN-LAST:event_saleRepEmployeeNumberButtonActionPerformed
+
+    private void contactLastNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactLastNameTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_contactLastNameTextFieldKeyTyped
+
+    private void contactFirstNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactFirstNameTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_contactFirstNameTextFieldKeyTyped
+
+    private void phoneTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') && !(evt.getKeyChar() == '+')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_phoneTextFieldKeyTyped
+
+    private void cityTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cityTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_cityTextFieldKeyTyped
+
+    private void stateTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_stateTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_stateTextFieldKeyTyped
+
+    private void postalCodeTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postalCodeTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') &&
+                !(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') &&
+                !(evt.getKeyChar() == '-') && !(evt.getKeyChar() == ' ')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_postalCodeTextFieldKeyTyped
+
+    private void countryTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_countryTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
+                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
+                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
+                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
+                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_countryTextFieldKeyTyped
+
+    private void creditLimitTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_creditLimitTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') && !(evt.getKeyChar() == '.')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_creditLimitTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

@@ -354,13 +354,7 @@ public class addCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_customerNumberTextFieldKeyTyped
 
     private void customerNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_customerNameTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') && 
-                !(evt.getKeyChar() >= 'a' && evt.getKeyChar() <= 'z') &&
-                !(evt.getKeyChar() == ' ') && !(evt.getKeyChar() == 'á') && 
-                !(evt.getKeyChar() == 'é') && !(evt.getKeyChar() == 'í') && 
-                !(evt.getKeyChar() == 'ó') && !(evt.getKeyChar() == 'ú')){
-            evt.consume();
-        }
+       //nada uwu
     }//GEN-LAST:event_customerNameTextFieldKeyTyped
 
     private void contactLastNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contactLastNameTextFieldKeyTyped
@@ -410,7 +404,9 @@ public class addCustomer extends javax.swing.JFrame {
     }//GEN-LAST:event_stateTextFieldKeyTyped
 
     private void postalCodeTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postalCodeTextFieldKeyTyped
-        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9')){
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') &&
+                !(evt.getKeyChar() >= 'A' && evt.getKeyChar() <= 'Z') &&
+                !(evt.getKeyChar() == '-') && !(evt.getKeyChar() == ' ')){
             evt.consume();
         }
     }//GEN-LAST:event_postalCodeTextFieldKeyTyped
