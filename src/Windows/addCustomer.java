@@ -25,6 +25,7 @@ public class addCustomer extends javax.swing.JFrame {
         DBemployees db = new DBemployees();
         salesRepEmployeeNumberComboBox.setModel(db.getEmployeesNumber());
     }
+    
     public boolean validateTextFields(){
         
         if(customerNumberTextField.getText().equals("")) {

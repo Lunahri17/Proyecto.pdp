@@ -106,6 +106,22 @@ public class DBorders {
         }
     }
     
+    public String getLastOrderNumber(){
+        String datos = "";
+        
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            Statement s = con.createStatement();
+            ResultSet res = s.executeQuery("SELECT * FROM orders WHERE orderNumber = (SELECT max(orderNumber) FROM orders)");
+            while(res.next()){
+                datos = res.getString("orderNumber");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
     
     //Talbe orderdetails -------------------------------------------------------
     public DefaultTableModel getOrderDetails(String orderNumber){

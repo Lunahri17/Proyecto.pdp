@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import sisexpsql.DBorders;
 import Windows.OrdersWindow;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,6 +28,19 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         orderDateFormattedTextField.setText(dtf.format(LocalDateTime.now()));
         customerNumberTextField.setText(OrdersWindow.text);
+        Integer number = Integer.parseInt(new DBorders().getLastOrderNumber()) + 1;
+        orderNumberTextField.setText(number.toString());
+    }
+    
+    public boolean validateTextFields(){
+        
+        if(requiredDateFormattedTextField.getText().equals("") || 
+                requiredDateFormattedTextField.getText().equals("yyyy-mm-dd")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Fecha");
+            return false;
+        }
+        
+        return true;
     }
 
     /**
@@ -71,6 +85,8 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Número de Cliente:");
+
+        orderNumberTextField.setEditable(false);
 
         jButton1.setText("Agregar Pedido");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -156,10 +172,14 @@ public class AgregarPedidoDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DBorders db = new DBorders();
-        db.addOrder(orderNumberTextField.getText(), orderDateFormattedTextField.getText(),
+        if (validateTextFields()) {
+            DBorders db = new DBorders();
+            db.addOrder(orderNumberTextField.getText(), orderDateFormattedTextField.getText(),
                 requiredDateFormattedTextField.getText(), commentsTextField.getText(), 
                 customerNumberTextField.getText());
+            JOptionPane.showMessageDialog(null, "Pedido cargado correctamente.");
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

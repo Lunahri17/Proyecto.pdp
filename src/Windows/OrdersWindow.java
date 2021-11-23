@@ -9,6 +9,7 @@ import Dialog.AddOrderDetail;
 import Dialog.editOrderDialog;
 import Dialog.AgregarPedidoDialog;
 import Dialog.EditCustomerDialog;
+import javax.swing.JOptionPane;
 import sisexpsql.DBcustomers;
 import sisexpsql.DBorders;
 
@@ -318,38 +319,63 @@ public class OrdersWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_customersTableMouseClicked
 
     private void addOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderButtonActionPerformed
-        text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
-        AgregarPedidoDialog apd = new AgregarPedidoDialog(this,true);
-        apd.setVisible(true);
-        ordersTable.setModel(new DBorders().getOrder(text));
+        if (!customersTable.isRowSelected(customersTable.getSelectedRow())) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un Cliente para poder agragar un pedido.");
+        } else {
+            text = customersTable.getValueAt(customersTable.getSelectedRow(), 0).toString();
+            AgregarPedidoDialog apd = new AgregarPedidoDialog(this,true);
+            apd.setVisible(true);
+            ordersTable.setModel(new DBorders().getOrder(text));
+        }
     }//GEN-LAST:event_addOrderButtonActionPerformed
 
     private void editOrderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editOrderButtonActionPerformed
-        text2 = ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString();
-        editOrderDialog eod = new editOrderDialog(this,true);
-        eod.setVisible(true);
+        if (!ordersTable.isRowSelected(ordersTable.getSelectedRow())) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un pedido.");
+        } else {
+            text2 = ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString();
+            editOrderDialog eod = new editOrderDialog(this,true);
+            eod.setVisible(true);
+        }
     }//GEN-LAST:event_editOrderButtonActionPerformed
 
     private void addOrderDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addOrderDetailButtonActionPerformed
-        text2 = ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString();
-        AddOrderDetail aob = new AddOrderDetail(this,true);
-        aob.setVisible(true);
+        if (!ordersTable.isRowSelected(ordersTable.getSelectedRow())) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un Pedido para poder agregar un detalle.");
+        } else {
+            text2 = ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString();
+            AddOrderDetail aob = new AddOrderDetail(this,true);
+            aob.setVisible(true);
+            orderDetailTable.setModel(new DBorders().getOrderDetails(
+                    ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString()));
+        }
     }//GEN-LAST:event_addOrderDetailButtonActionPerformed
 
     private void deleteOrderDetailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteOrderDetailButtonActionPerformed
-        DBorders db = new DBorders();
-        
-        String numero = orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 0).toString();
-        String numero2 = orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 1).toString();
-        
-        db.delProductDetail(numero,numero2);
+        if (!orderDetailTable.isRowSelected(orderDetailTable.getSelectedRow())) {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un Pedido para poder eliminarlo.");
+        } else {
+            int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea eliminar?", "Eliminar un detalle de Pedido", 
+                    JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
+            if (resp == 0) {
+                DBorders db = new DBorders();
+                db.delProductDetail(orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 0).toString(),
+                        orderDetailTable.getValueAt(orderDetailTable.getSelectedRow(), 1).toString());
+                orderDetailTable.setModel(new DBorders().getOrderDetails(
+                    ordersTable.getValueAt(ordersTable.getSelectedRow(), 0).toString()));
+            } 
+        }
     }//GEN-LAST:event_deleteOrderDetailButtonActionPerformed
 
     private void editCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editCustomerButtonActionPerformed
-        text = customerNumberTextField.getText();
-        EditCustomerDialog ecd = new EditCustomerDialog(this,true);
-        ecd.setVisible(true);
-        customersTable.setModel(new DBcustomers().listar());
+        if (customerNumberTextField.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un cliente.");
+        } else {
+            text = customerNumberTextField.getText();
+            EditCustomerDialog ecd = new EditCustomerDialog(this,true);
+            ecd.setVisible(true);
+            customersTable.setModel(new DBcustomers().listar());
+        }
     }//GEN-LAST:event_editCustomerButtonActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
