@@ -335,6 +335,7 @@ public class EmployeesOfficesWindow extends javax.swing.JFrame {
     private void addEmployeeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addEmployeeButtonActionPerformed
         AddEmployeeDialog2 aed = new AddEmployeeDialog2(this,true);
         aed.setVisible(true);
+        employeeTable.setModel(new DBemployees().getEmployees());
     }//GEN-LAST:event_addEmployeeButtonActionPerformed
 
     private void employeeTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_employeeTableMouseClicked

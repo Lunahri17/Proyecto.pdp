@@ -5,6 +5,7 @@
  */
 package Dialog;
 
+import javax.swing.JOptionPane;
 import sisexpsql.DBemployees;
 import sisexpsql.DBoffices;
 
@@ -23,6 +24,41 @@ public class AddEmployeeDialog2 extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         officeCodeComboBox.setModel(new DBoffices().getOfficeCodes());
         reportsToComboBox.setModel(new DBemployees().getEmployeesNumber());
+    }
+    
+    public boolean validateTextFields(){
+        
+        if(employeeNumberTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Número de Empleado.");
+            return false;
+        }
+        
+        if(lastNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Apellido.");
+            return false;
+        }
+        
+        if(firstNameTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Nombre.");
+            return false;
+        }
+        
+        if(extensionTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar una Extención.");
+            return false;
+        }
+        
+        if(emailTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Email de Contacto");
+            return false;
+        }
+        
+        if(jobTitleTextField.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un Cargo");
+            return false;
+        }
+        
+        return true;
     }
 
     /**
@@ -174,11 +210,15 @@ public class AddEmployeeDialog2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DBemployees db = new DBemployees();
-        db.addEmployee(employeeNumberTextField.getText(), lastNameTextField.getText(), 
+        if (validateTextFields()) {
+            DBemployees db = new DBemployees();
+            db.addEmployee(employeeNumberTextField.getText(), lastNameTextField.getText(), 
                 firstNameTextField.getText(), extensionTextField.getText(), emailTextField.getText(), 
                 officeCodeComboBox.getSelectedItem().toString(), reportsToComboBox.getSelectedItem().toString(), 
                 jobTitleTextField.getText());
+            JOptionPane.showMessageDialog(null, "Cargado correctamente");
+            this.dispose();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
