@@ -49,7 +49,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         customerNumberTextField = new javax.swing.JTextField();
-        findCustomerButton = new javax.swing.JButton();
+        findCustomeByNumberrButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -61,7 +61,7 @@ public class OrdersWindow extends javax.swing.JFrame {
         addOrderDetailButton = new javax.swing.JButton();
         deleteOrderDetailButton = new javax.swing.JButton();
         editCustomerButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        findCustomerByNameButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Buscar Clientes - Pedidos - Detalle de Pedidos");
@@ -128,10 +128,10 @@ public class OrdersWindow extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Número de Cliente:");
 
-        findCustomerButton.setText("Buscar por Número");
-        findCustomerButton.addActionListener(new java.awt.event.ActionListener() {
+        findCustomeByNumberrButton.setText("Buscar por Número");
+        findCustomeByNumberrButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                findCustomerButtonActionPerformed(evt);
+                findCustomeByNumberrButtonActionPerformed(evt);
             }
         });
 
@@ -192,10 +192,10 @@ public class OrdersWindow extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Buscar por Nombre");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        findCustomerByNameButton.setText("Buscar por Nombre");
+        findCustomerByNameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                findCustomerByNameButtonActionPerformed(evt);
             }
         });
 
@@ -228,8 +228,8 @@ public class OrdersWindow extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(editCustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(findCustomerButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(findCustomerByNameButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(findCustomeByNumberrButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(customerNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))))
                         .addGap(16, 16, 16))
                     .addGroup(layout.createSequentialGroup()
@@ -254,9 +254,9 @@ public class OrdersWindow extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(customerNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(8, 8, 8)
-                        .addComponent(findCustomerButton)
+                        .addComponent(findCustomeByNumberrButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(findCustomerByNameButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(editCustomerButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -296,11 +296,11 @@ public class OrdersWindow extends javax.swing.JFrame {
         customersTable.setModel(db.listar());
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void findCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findCustomerButtonActionPerformed
+    private void findCustomeByNumberrButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findCustomeByNumberrButtonActionPerformed
         DBcustomers db = new DBcustomers();
         customersTable.setModel(db.findCustomer(Integer.parseInt(customerNumberTextField.getText())));
          ordersTable.setModel(new DBorders().getOrder(customerNumberTextField.getText()));
-    }//GEN-LAST:event_findCustomerButtonActionPerformed
+    }//GEN-LAST:event_findCustomeByNumberrButtonActionPerformed
 
     private void ordersTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ordersTableMouseClicked
         int fila = ordersTable.getSelectedRow();
@@ -378,10 +378,10 @@ public class OrdersWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_editCustomerButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void findCustomerByNameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_findCustomerByNameButtonActionPerformed
         DBcustomers db = new DBcustomers();
         customersTable.setModel(db.findCustomerByName(customerNumberTextField.getText()));
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_findCustomerByNameButtonActionPerformed
     
     /**
      * @param args the command line arguments
@@ -426,9 +426,9 @@ public class OrdersWindow extends javax.swing.JFrame {
     private javax.swing.JButton deleteOrderDetailButton;
     private javax.swing.JButton editCustomerButton;
     private javax.swing.JButton editOrderButton;
-    private javax.swing.JButton findCustomerButton;
+    private javax.swing.JButton findCustomeByNumberrButton;
+    private javax.swing.JButton findCustomerByNameButton;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

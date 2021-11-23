@@ -51,8 +51,8 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="editCustomerButton" min="-2" pref="151" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jButton2" max="32767" attributes="0"/>
-                                      <Component id="findCustomerButton" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="findCustomerByNameButton" max="32767" attributes="0"/>
+                                      <Component id="findCustomeByNumberrButton" alignment="1" max="32767" attributes="0"/>
                                       <Component id="customerNumberTextField" alignment="0" pref="151" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
@@ -88,9 +88,9 @@
                           <Component id="customerNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="findCustomerButton" min="-2" max="-2" attributes="0"/>
+                      <Component id="findCustomeByNumberrButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                      <Component id="findCustomerByNameButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="editCustomerButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
@@ -223,12 +223,12 @@
     </Component>
     <Component class="javax.swing.JTextField" name="customerNumberTextField">
     </Component>
-    <Component class="javax.swing.JButton" name="findCustomerButton">
+    <Component class="javax.swing.JButton" name="findCustomeByNumberrButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar por N&#xfa;mero"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findCustomerButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findCustomeByNumberrButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
@@ -319,12 +319,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="editCustomerButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="findCustomerByNameButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Buscar por Nombre"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="findCustomerByNameButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
