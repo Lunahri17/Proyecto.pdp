@@ -300,6 +300,23 @@ public class DBproducts {
         }
     }
     
+    public String getQuantityStockProdut(String productCode){
+        String datos = "";
+        
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement("SELECT * FROM products WHERE productCode = ?");
+            s.setString(1, productCode);
+            ResultSet res = s.executeQuery();
+            while(res.next()){
+                datos = res.getString("quantityInStock");
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return datos;
+    }
     
     
     //ProductLine Table:

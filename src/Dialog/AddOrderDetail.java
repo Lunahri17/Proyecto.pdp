@@ -91,6 +91,18 @@ public class AddOrderDetail extends javax.swing.JDialog {
 
         productCodeTextField.setEditable(false);
 
+        quantityOrderedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityOrderedTextFieldKeyTyped(evt);
+            }
+        });
+
+        priceEachTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                priceEachTextFieldKeyTyped(evt);
+            }
+        });
+
         orderLineNumberComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18" }));
 
         productsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -202,14 +214,38 @@ public class AddOrderDetail extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (validateTextFields()) {
-            DBorders db = new DBorders();
-            db.addOrderDetail(orderNumberTextField.getText(), productCodeTextField.getText(),
-                    quantityOrderedTextField.getText(), priceEachTextField.getText(),
-                    orderLineNumberComboBox.getSelectedItem().toString());
-            JOptionPane.showMessageDialog(null, "Cargado correctamente.");
-            this.dispose();
+            Integer stock = Integer.parseInt(new DBproducts().getQuantityStockProdut(productCodeTextField.getText()));
+            Integer cantidadIn = Integer.parseInt(quantityOrderedTextField.getText());
+            Integer resultado = stock - cantidadIn;
+            
+            if (!(stock.equals(0)) && resultado >= 0) {
+                DBproducts db2 = new DBproducts();
+                db2.updateQuantityInStock(resultado.toString(), productCodeTextField.getText());
+                
+                DBorders db = new DBorders();
+                db.addOrderDetail(orderNumberTextField.getText(), productCodeTextField.getText(),
+                        quantityOrderedTextField.getText(), priceEachTextField.getText(),
+                        orderLineNumberComboBox.getSelectedItem().toString());
+                JOptionPane.showMessageDialog(null, "Cargado correctamente.");
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "No hay Stock de este producto,"
+                        + " o esta ingresando una cantidad superior a la existente.");
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void quantityOrderedTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityOrderedTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_quantityOrderedTextFieldKeyTyped
+
+    private void priceEachTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_priceEachTextFieldKeyTyped
+        if (!(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') && !(evt.getKeyChar() == '.')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_priceEachTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

@@ -158,8 +158,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="quantityOrderedTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="quantityOrderedTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="priceEachTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="priceEachTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="orderLineNumberComboBox">
       <Properties>
