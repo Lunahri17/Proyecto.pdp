@@ -188,4 +188,25 @@ public class DBorders {
             System.out.println(e.getMessage());
         }
     }
+    
+    public boolean findOrderDetailEqual(String orderNumber, String productCode){
+        
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT productCode FROM orderdetails WHERE orderNumber = ?");
+            s.setString(1, orderNumber);
+            ResultSet res = s.executeQuery(); 
+            while (res.next()) {
+                if (res.getString("productCode").equals(productCode)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+    
 }
