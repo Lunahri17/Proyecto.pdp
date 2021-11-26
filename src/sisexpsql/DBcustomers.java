@@ -186,6 +186,25 @@ public class DBcustomers {
         return datos;
     }
     
+    public boolean findCustomerEqual(String customerNumber){
+        
+        try {
+            Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost/classicmodels","root","1234");
+            PreparedStatement s = con.prepareStatement(
+                    "SELECT customerNumber FROM customers");
+            ResultSet res = s.executeQuery(); 
+            while (res.next()) {
+                if (res.getString("customerNumber").equals(customerNumber)) {
+                    return true;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+    
     //Editar Columnas de Clientes:
     public void updateCustomerName(String customerName, String customerNumber){
         try {

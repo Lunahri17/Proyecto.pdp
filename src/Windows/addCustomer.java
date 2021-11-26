@@ -334,17 +334,30 @@ public class addCustomer extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String numero;
+        if (creditLimitTextField.getText().equals("")) {
+            numero = "0";
+        } else {
+            numero = creditLimitTextField.getText();
+        }
+        
+        
         if (validateTextFields()){
-            DBcustomers db = new DBcustomers();
-            db.addCustomer(customerNumberTextField.getText(), customerNameTextField.getText(), 
-                contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
-                phoneTextField.getText(), addressLine1TextField.getText(), 
-                addressLine2TextField.getText(), cityTextField.getText(),
-                stateTextField.getText(), postalCodeTextField.getText(), 
-                countryTextField.getText(), salesRepEmployeeNumberComboBox.getSelectedItem().toString(),
-                creditLimitTextField.getText());
-            JOptionPane.showMessageDialog(null, "Cargado Correctamente");
-            this.dispose();
+            if (!(new DBcustomers().findCustomerEqual(customerNumberTextField.getText()))) {
+                DBcustomers db = new DBcustomers();
+                db.addCustomer(customerNumberTextField.getText(), customerNameTextField.getText(), 
+                    contactLastNameTextField.getText(), contactFirstNameTextField.getText(),
+                    phoneTextField.getText(), addressLine1TextField.getText(), 
+                    addressLine2TextField.getText(), cityTextField.getText(),
+                    stateTextField.getText(), postalCodeTextField.getText(), 
+                    countryTextField.getText(), salesRepEmployeeNumberComboBox.getSelectedItem().toString(),
+                    numero);
+                JOptionPane.showMessageDialog(null, "Cargado Correctamente");
+                this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(null, "Ya existe un cliente con el Numero: " 
+                        + customerNumberTextField.getText());
+            }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
