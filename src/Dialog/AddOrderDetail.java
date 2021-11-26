@@ -219,15 +219,20 @@ public class AddOrderDetail extends javax.swing.JDialog {
             Integer resultado = stock - cantidadIn;
             
             if (!(stock.equals(0)) && resultado >= 0) {
-                DBproducts db2 = new DBproducts();
-                db2.updateQuantityInStock(resultado.toString(), productCodeTextField.getText());
-                
-                DBorders db = new DBorders();
-                db.addOrderDetail(orderNumberTextField.getText(), productCodeTextField.getText(),
-                        quantityOrderedTextField.getText(), priceEachTextField.getText(),
-                        orderLineNumberComboBox.getSelectedItem().toString());
-                JOptionPane.showMessageDialog(null, "Cargado correctamente.");
-                this.dispose();
+                if (!(new DBorders().findOrderDetailEqual(orderNumberTextField.getText(),
+                        productCodeTextField.getText()))) {
+                    DBproducts db2 = new DBproducts();
+                    db2.updateQuantityInStock(resultado.toString(), productCodeTextField.getText());
+
+                    DBorders db = new DBorders();
+                    db.addOrderDetail(orderNumberTextField.getText(), productCodeTextField.getText(),
+                            quantityOrderedTextField.getText(), priceEachTextField.getText(),
+                            orderLineNumberComboBox.getSelectedItem().toString());
+                    JOptionPane.showMessageDialog(null, "Cargado correctamente.");
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Ya ingresó un Detalle para este producto.");
+                }
             } else {
                 JOptionPane.showMessageDialog(null, "No hay Stock de este producto,"
                         + " o esta ingresando una cantidad superior a la existente.");
