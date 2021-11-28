@@ -214,7 +214,7 @@ public class PaymentsWindow extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         DBpayments db = new DBpayments();
-        paymentsTable.setModel(db.findPayments(findTextField.getText()));
+        paymentsTable.setModel(db.findPayments(findTextField.getText())); //botón que hace cosas jiji juju
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void getPaymentsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getPaymentsButtonActionPerformed
