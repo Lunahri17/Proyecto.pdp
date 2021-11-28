@@ -2,7 +2,7 @@
 
 ![alt text](https://i.imgur.com/52jdpCR.png)
 
-no se nada UwU
+Proyecto Aprobado
 
 <h1> Diagrama de la Base de Datos: </h1>
 
